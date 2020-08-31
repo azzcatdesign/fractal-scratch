@@ -1,4 +1,4 @@
-<h2 class="f-heading">Table, Manage Employees</h2>
+<h2 class="f-heading">Table, Manage</h2>
 <table class="table table--manage">
 
   <colgroup>
@@ -110,11 +110,11 @@
       <td class="table__cell table__cell--name">
         <div class="table__cell__person">
           <img class="table__cell__img" src="" alt="">
-          <span>Marvin Albright</span>
+          <span>Ruth Bader Ginsberg</span>
         </div>
       </td>
-      <td class="table__cell">Director of Development</td>
-      <td class="table__cell">Information Technology</td>
+      <td class="table__cell">Justice of Supreme Court</td>
+      <td class="table__cell">Department of Justice</td>
       <td class="table__cell">01932</td>
       <td class="table__cell">1234</td>
       <td class="table__cell">Active</td>
@@ -137,12 +137,40 @@
       <td class="table__cell table__cell--name">
         <div class="table__cell__person">
           <img class="table__cell__img" src="" alt="">
-          <span>Marty Lester</span>
+          <span>Sonia Sotomayor</span>
         </div>
       </td>
 
-      <td class="table__cell">Database Engineer</td>
-      <td class="table__cell">Information Technology</td>
+      <td class="table__cell">Justice of Supreme Court</td>
+      <td class="table__cell">Department of Justice</td>
+      <td class="table__cell">02013</td>
+      <td class="table__cell">1234</td>
+      <td class="table__cell">Active</td>
+      <td class="table__cell table__cell--actions">
+
+        {{> '@table-actions--manage'}}
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="table__cell table__cell--checkbox">
+        <label class="checkbox" for="checkbox2">
+          <input class="checkbox__input" type="checkbox" id="checkbox2">
+          <svg class="checkbox__icon" role="presentation">
+            <use xlink:href="/svg/svg.svg#check-filled"/>
+          </svg>
+        </label>
+      </td>
+      <td class="table__cell table__cell--name">
+        <div class="table__cell__person">
+          <img class="table__cell__img" src="" alt="">
+          <span>Elena Kagan</span>
+        </div>
+      </td>
+
+      <td class="table__cell">Justice of Supreme Court</td>
+      <td class="table__cell">Department of Justice</td>
       <td class="table__cell">02013</td>
       <td class="table__cell">1234</td>
       <td class="table__cell">Active</td>

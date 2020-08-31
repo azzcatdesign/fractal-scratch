@@ -4,13 +4,3 @@ display:
   # Not exact match to Figma, but close enough to visualize.
   # Degrees don't work here.
   background: linear-gradient(to right, hsl(223, 39%, 18%), hsl(223, 39%, 18%) 10%, hsl(261, 88%, 30%) 20%, hsl(196, 72%, 39%))
-variants:
-  - name: questys
-    context:
-      app: Questys
-  - name: hr-payroll
-    context:
-      app: HR / Payroll
-  - name: personnel
-    context:
-      app: Personnel

@@ -20,6 +20,7 @@
   --color-gray-5: hsl(210, 5%, 91%); // #E8E9EA
   --color-gray-background: hsl(220, 16%, 96%); // #F4F5F7 new background
   --color-gray-background-light: hsl(0, 0%, 98%); // #FAFAFA background light
+  --color-white-overlay: hsla(0, 0%, 100%, 0.05);
   --white: hsl(0, 0%, 100%);
 
   /* Color vars mapped to semantic vars */
@@ -65,7 +66,7 @@
 
   // Tag
   --color-base-tag-hs: 183, 54%;
-  --color-tag: hsl(var(--color-base-tag), 85%); // #c6ecee
+  --color-tag: hsl(var(--color-base-tag-hs), 85%); // #c6ecee
 }
 
 /**

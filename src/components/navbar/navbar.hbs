@@ -28,7 +28,7 @@
           </li>
           <li class="navbar__sub-menu__list-item">
             <a href="#" class="navbar__sub-menu__link">
-              HR / Payroll
+              Label
               <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
                 <use xlink:href="{{ path '/svg/svg.svg' }}#check" />
               </svg>
@@ -39,7 +39,7 @@
           </li>
           <li class="navbar__sub-menu__list-item">
             <a href="#" class="navbar__sub-menu__link">
-              Work Management
+              Extra Long Label
               <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
                 <use xlink:href="{{ path '/svg/svg.svg' }}#check" />
               </svg>
@@ -50,11 +50,11 @@
           </li>
         </ul>
 
-        <div class="navbar__sub-menu__section-title">Administration</div>
+        <div class="navbar__sub-menu__section-title">Section</div>
         <ul class="navbar__sub-menu__list">
           <li class="navbar__sub-menu__list-item">
             <a href="#" class="navbar__sub-menu__link">
-              Settings
+              Longer Label
               <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
                 <use xlink:href="{{ path '/svg/svg.svg' }}#check" />
               </svg>
@@ -69,20 +69,10 @@
   </div>
 
   <div class="navbar__group navbar__brand">
-    <svg class="navbar__brand__icon">
-      <use xlink:href="{{path '/svg/svg.svg' }}#logo-cs-tree"></use>
+    <svg class="navbar__brand__icon" role="presentation">
+      <use xlink:href="{{path '/svg/svg.svg' }}#stroopwafel"></use>
     </svg>
-
-    {{#if (eq _self.name "default")}}
-      {{!-- This section for CS Home --}}
-      <svg class="navbar__brand__logotext">
-        <use xlink:href="{{path '/svg/svg.svg' }}#logo-cs-name"></use>
-      </svg>
-      <span class="u-screen-reader-only">CitySuite</span>
-    {{else}}
-      {{!-- This section for all other apps --}}
-      <span class="navbar__brand__text">{{ app }}</span>
-    {{/if}}
+    <span class="navbar__brand__text">Application</span>
   </div>
 
   <div class="navbar__group navbar__menus-group">

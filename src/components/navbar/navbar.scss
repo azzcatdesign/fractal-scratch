@@ -33,6 +33,8 @@ $avatar-diameter: 40px;
 
 // Navbar Brands
 .navbar__brand { // active app
+  --color-near-black-overlay: hsla(223, 39%, 18%, 0.8);
+
   margin-right: 66px;
   position: relative;
 
@@ -44,17 +46,17 @@ $avatar-diameter: 40px;
     position: absolute;
     top: 0;
     right: -36px;
-    background-color: rgba(var(--color-bg-dark), 0.8);
+    background-color: var(--color-near-black-overlay);
     transform: skew(-19deg);
     z-index: $z-minus;
   }
 }
 
-.navbar__brand__icon { // tree
+.navbar__brand__icon { // stroopwafel
   margin-right: 12px;
   width: 23px;
   height: 32px;
-  color: var(--white);
+  fill: var(--white);
 }
 
 .navbar__brand__logotext { // 'CitySuite' svg, not text
@@ -216,6 +218,7 @@ $avatar-diameter: 40px;
   width: 100%;
   padding: 10px 24px;
   color: inherit;
+  border: none;
   text-decoration: none;
 
   // Menu items inside the apps menu
@@ -225,6 +228,7 @@ $avatar-diameter: 40px;
 
     padding: 14px;
     background-color: var(--color-gray-background);
+    border: none;
     border-radius: $border-radius-sm;
   }
 }
@@ -332,7 +336,7 @@ $avatar-diameter: 40px;
 
 .navbar__button--menu-group {
   padding: 0 22px;
-  background-color: rgba(var(--white), 0.05);
+  background-color: var(--color-white-overlay);
 
   &:hover {
     .navbar__button__icon {
@@ -346,7 +350,7 @@ $avatar-diameter: 40px;
     color: var(--color-text-lightest);
 
     .navbar__button__icon {
-      fill: rgba(var(--white), 0.5);
+      fill: var(--color-gray-5);
     }
   }
 }
@@ -356,7 +360,7 @@ $avatar-diameter: 40px;
   margin-left: 0.5em;
   width: 1em;
   height: 1em;
-  fill: rgba(var(--white), 0.5);
+  fill: var(--color-gray-5);
 }
 
 .navbar__button--icon-only {
