@@ -21,7 +21,7 @@
   bottom: calc(100% + 2px);
   left: 50%;
   background-color: var(--color-bg-dark);
-  color: $color-text-lightest;
+  color: var(--color-text-lightest);
   border-radius: $border-radius-sm;
   transform: translateX(-50%);
 

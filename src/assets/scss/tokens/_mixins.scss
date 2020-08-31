@@ -64,12 +64,12 @@
   }
 
   &.is-active {
-    color: $color-text-lightest;
+    color: var(--color-text-lightest);
     background: var(--color-bg-dark);
     border-color: var(--color-bg-dark);
 
     .navbar__sub-menu__icon {
-      fill: $color-text-lightest;
+      fill: var(--color-text-lightest);
     }
 
     .navbar__sub-menu__icon--check {
@@ -98,10 +98,10 @@
   &:focus,
   &:hover {
     background-color: var(--color-primary);
-    color: $color-text-lightest;
+    color: var(--color-text-lightest);
 
     .navbar__sub-menu__icon {
-      fill: $color-text-lightest;
+      fill: var(--color-text-lightest);
     }
 
     .navbar__sub-menu__icon--check {

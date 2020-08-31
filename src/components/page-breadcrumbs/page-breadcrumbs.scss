@@ -56,7 +56,7 @@ $breadcrumb-height: 36px;
   max-height: $breadcrumb-height;
   position: relative;
   text-decoration: none;
-  color: $color-text-lightest;
+  color: var(--color-text-lightest);
   white-space: nowrap;
 
   // Skewed box

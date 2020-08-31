@@ -19,7 +19,7 @@
   position: absolute;
   top: 48px;
   right: 56px;
-  color: $color-text-lightest;
+  color: var(--color-text-lightest);
 }
 
 .brand-bg__icon {
@@ -34,7 +34,7 @@
 }
 
 // Theme variants
-main[data-color-theme="cs-neutral"] {
+main[data-color-theme="color-theme-neutral"] {
   .brand-bg {
     --brand-gradient: linear-gradient(#{var(--color-gray-60)}, #{var(--color-gray-60)});
   }

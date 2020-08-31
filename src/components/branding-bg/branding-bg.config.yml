@@ -1,12 +1,12 @@
 title: Branding Background
 collated: true
 variants:
-  - name: cs-neutral
+  - name: color-theme-neutral
     context:
-      theme: cs-neutral
-  - name: loveland
+      theme: color-theme-neutral
+  - name: color-theme-teal
     context:
-      theme: loveland
+      theme: color-theme-teal
   - name: questys
     context:
       theme: questys

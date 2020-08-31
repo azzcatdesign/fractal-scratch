@@ -11,7 +11,7 @@
 .sidebar-list__item--current,
 .sidebar-list__item--folder {
   background: var(--color-bg-dark);
-  color: $color-text-lightest;
+  color: var(--color-text-lightest);
 }
 
 .sidebar-list__item--folder,

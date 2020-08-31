@@ -25,7 +25,7 @@
   @include type('body-small');
 
   grid-area: d;
-  color: $color-text-quiet;
+  color: var(--color-text-quiet);
 }
 
 .app-card__icon {

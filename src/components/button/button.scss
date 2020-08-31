@@ -17,7 +17,7 @@ $button-height-inline-action: 32px;
   background-color: var(--primary-bg, var(--color-primary));
   border: none;
   border-radius: $border-radius-sm;
-  color: var(--primary-fg, $color-text-lightest);
+  color: var(--primary-fg, var(--color-text-lightest));
   cursor: pointer;
   text-transform: uppercase;
 
@@ -95,14 +95,14 @@ $button-height-inline-action: 32px;
 
 // Content Button
 .button--content {
-  color: $color-text-body;
+  color: var(--color-text-body);
   background-color: var(--color-bg-default);
   border: 1px solid var(--color-gray-20);
   text-transform: unset;
 
   &:hover,
   &:focus {
-    color: $color-text-lightest;
+    color: var(--color-text-lightest);
     background-color: var(--color-primary);
     border-color: var(--color-primary);
   }
@@ -140,19 +140,19 @@ $button-height-inline-action: 32px;
 
   min-height: $button-height-inline-action;
   border-radius: $border-radius-sm;
-  color: $color-text-body;
+  color: var(--color-text-body);
   text-transform: none;
   background-color: var(--color-bg-gray);
 
   &:hover {
     background-color: var(--color-primary);
-    color: $color-text-lightest;
+    color: var(--color-text-lightest);
   }
 }
 
 // Application State Buttons
 .button--alert {
-  --primary-fg: #{$color-text-lightest};
+  --primary-fg: #{var(--color-text-lightest)};
   --primary-bg: var(--color-alert);
   --secondary-fg: var(--color-alert);
   --secondary-bg: var(--color-alert-tint);
@@ -165,7 +165,7 @@ $button-height-inline-action: 32px;
 // Note: EP said there will *likely* be a success button. No Figma yet.
 // Note: Regular success color passes AA w/black text, --shade passes with white text.
 .button--success {
-  --primary-fg: #{$color-text-lightest};
+  --primary-fg: #{var(--color-text-lightest)};
   --primary-bg: var(--color-success);
   --secondary-fg: var(--color-success);
   --secondary-bg: var(--color-success-tint);
@@ -176,7 +176,7 @@ $button-height-inline-action: 32px;
 
 // Clear background button with light gray hover
 .button--clear {
-  --primary-fg: #{$color-text-body};
+  --primary-fg: #{var(--color-text-body)};
   --primary-bg: transparent;
 
   &:focus {
@@ -192,7 +192,7 @@ $button-height-inline-action: 32px;
 .button--dim {
   @include focus-ring(var(--primary-fg));
 
-  --primary-fg: #{$color-text-body};
+  --primary-fg: #{var(--color-text-body)};
   --primary-bg: #{var(--color-bg-gray)};
 }
 

@@ -7,7 +7,7 @@
 .page-menu__heading {
   @include type('body-small');
 
-  color: $color-text-quiet;
+  color: var(--color-text-quiet);
   margin-bottom: 16px;
 
   ul + & {

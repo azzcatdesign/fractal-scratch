@@ -16,7 +16,7 @@
   left: calc(100% + 12px);
   font-size: 0.875rem;
   background-color: var(--color-bg-dark);
-  color: $color-text-lightest;
+  color: var(--color-text-lightest);
   border-radius: $border-radius-sm;
 
   .button:hover + &,

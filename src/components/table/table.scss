@@ -60,7 +60,7 @@ $avatar-size: 48px;
 
 .table__cell--head {
   font-weight: 500;
-  color: $color-text-darkest;
+  color: var(--color-text-darkest);
 }
 
 .table__cell--checkbox {

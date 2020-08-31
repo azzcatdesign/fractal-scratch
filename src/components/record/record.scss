@@ -104,7 +104,7 @@
 .record__data-point {
   @include type('body-small-single-line');
 
-  color: $color-text-quiet;
+  color: var(--color-text-quiet);
 }
 
 .record__list {

@@ -1,5 +1,5 @@
 variants:
-  - name: loveland
-    label: Loveland
-  - name: cs-neutral
+  - name: color-theme-teal
+    label: color-theme-teal
+  - name: color-theme-neutral
     label: CS Neutral

@@ -45,7 +45,7 @@ main {
       &:hover {
         background-color: var(--color-primary);
         border-bottom: none;
-        color: $color-text-lightest;
+        color: var(--color-text-lightest);
       }
     }
   }

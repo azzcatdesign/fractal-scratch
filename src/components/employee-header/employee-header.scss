@@ -19,7 +19,7 @@
 
   grid-area: name;
   margin-bottom: 6px;
-  color: $color-text-darkest;
+  color: var(--color-text-darkest);
 }
 
 .ee-header__dept {
@@ -40,7 +40,7 @@
   @include type('body-small');
 
   margin-bottom: 8px;
-  color: $color-text-quiet;
+  color: var(--color-text-quiet);
   grid-column: auto / span 1;
   grid-row: 1 / span 1;
 }

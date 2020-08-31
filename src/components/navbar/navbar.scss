@@ -14,7 +14,7 @@ $avatar-diameter: 40px;
 // Note: no background-color as per Figma. Gradient applied in .yml for approximation/visualization of menu items as per Figma.
 .navbar--global {
   height: $navbar-height;
-  color: $color-text-lightest;
+  color: var(--color-text-lightest);
 }
 
 // Navbar Groups
@@ -177,7 +177,7 @@ $avatar-diameter: 40px;
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  color: $color-text-body;
+  color: var(--color-text-body);
   text-decoration: none;
   transition: $trans-dur-md background-color, color ease-in-out;
   white-space: nowrap;
@@ -285,7 +285,7 @@ $avatar-diameter: 40px;
   &:active,
   &:hover {
     background-color: var(--color-bg-default);
-    color: $color-text-body;
+    color: var(--color-text-body);
   }
 
   // User notification marker
@@ -308,7 +308,7 @@ $avatar-diameter: 40px;
 .navbar__button__icon {
   width: 1.35em;
   height: 1.35em;
-  fill: $color-text-lightest;
+  fill: var(--color-text-lightest);
 }
 
 // Navbar Applications Trigger (ellipsis-v)
@@ -343,7 +343,7 @@ $avatar-diameter: 40px;
   &:active,
   &.is-active {
     background-color: rgba(var(--color-bg-dark), 0.8);
-    color: $color-text-lightest;
+    color: var(--color-text-lightest);
 
     .navbar__button__icon {
       fill: rgba(var(--white), 0.5);
@@ -373,7 +373,7 @@ $avatar-diameter: 40px;
     background-color: var(--white);
 
     .navbar__button__icon {
-      fill: $color-text-body;
+      fill: var(--color-text-body);
     }
   }
 }
