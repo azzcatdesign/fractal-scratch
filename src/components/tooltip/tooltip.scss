@@ -1,0 +1,32 @@
+.tooltip {
+  position: relative;
+}
+
+// Since tooltip is inside <p> we can't increase height to minimum touch size b/c it can interfere with other links or tooltips in nearby copy.
+.tooltip__trigger {
+  @include focus-ring;
+
+  border-bottom: 1px dashed var(--color-primary);
+  cursor: pointer;
+}
+
+.tooltip__text {
+  @include type('body-single-line');
+
+  box-sizing: content-box; // Fix for Safari
+  padding: 4px 12px;
+  width: max-content;
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  background-color: var(--color-bg-dark);
+  color: $color-text-lightest;
+  border-radius: $border-radius-sm;
+  transform: translateX(-50%);
+
+  .tooltip__trigger:hover + &,
+  .tooltip__trigger:focus + & {
+    display: block;
+  }
+}

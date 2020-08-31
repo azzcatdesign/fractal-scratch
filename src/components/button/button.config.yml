@@ -1,0 +1,56 @@
+title: Button
+collated: true
+context:
+  text: Default
+  wrapped: true
+  types:
+    - type: default
+    - type: secondary
+    - type: tertiary
+  styles:
+    - style: default
+    - style: disabled
+    - style: small
+variants:
+  - name: action
+    context:
+      name: Action
+      modifier: action
+      styles:
+        - style: default
+        - style: disabled
+  - name: alert
+    context:
+      text: Alert
+      modifier: alert
+  - name: success
+    context:
+      text: Success
+      modifier: success
+  - name: icon
+    context:
+      text: Icon
+      icon: true
+  - name: multi
+    context:
+      text: Multi
+      multi: true
+      styles:
+        - style: small
+      types:
+        - type: default
+        - type: secondary
+  - name: icon-only
+    context:
+      modifier: icon-only
+      types:
+        - type: dim
+        - type: clear
+        - type: alert
+      styles:
+        - style: default
+        - style: small
+      notifications:
+        - notification: false
+        - notification: true
+  - name: content

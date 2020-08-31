@@ -1,0 +1,9 @@
+title: Tag
+collated: true
+variants:
+  - name: white
+    context:
+      modifier: white
+  - name: category
+    context:
+      modifier: category

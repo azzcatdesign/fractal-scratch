@@ -1,0 +1,105 @@
+.form-input { // Label as container
+  @include touch-min;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &::placeholder {
+    color: var(--color-gray-40);
+  }
+}
+
+.form-input__label {
+  @include type('input-label');
+
+  margin-bottom: 8px;
+  color: $color-text-body;
+}
+
+.form-input__hint {
+  @include type('input-hint');
+
+  margin-top: 10px;
+  color: var(--color-gray-60);
+}
+
+.form-input__input {
+  @include type('input');
+
+  --padding-hz: calc(12px + 16px + 12px); // Default padding-left/right (12px), plus width of icon (16px), plus width of margin between icon and text (12px)
+
+  margin: 0;
+  width: 100%;
+  height: calc(1rem + 12px + 12px); // Add vertical padding to height
+  padding: 12px;
+  background-color: var(--color-bg-default);
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--color-gray-20);
+
+  &:active,
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 6px var(--color-primary-translucent);
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-input--date & {
+    &:invalid {
+      border-color: var(--color-alert);
+      box-shadow: 0 0 4px var(--color-alert);
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      display: none; // Chrome has its own calendar icon.
+    }
+  }
+}
+
+.form-input__input--textarea {
+  height: unset;
+}
+
+.form-input__input--icon-prepend {
+  padding-left: var(--padding-hz);
+}
+
+.form-input__input--icon-append {
+  padding-right: var(--padding-hz);
+}
+
+.form-input__content { // Wrap for input + icon to position icon.
+  display: inline-block;
+  position: relative;
+}
+
+.form-input__icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: currentColor;
+
+  .form-input__input:focus + &,
+  .form-input__input:active + & {
+    fill: var(--color-primary);
+  }
+
+  .form-input__input--icon-prepend + & {
+    left: 12px;
+  }
+
+  .form-input__input--icon-append + & {
+    right: 12px;
+  }
+
+  .form-input--date & {
+    color: $color-text-body;
+  }
+}

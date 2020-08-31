@@ -1,0 +1,8 @@
+title: Links
+collated: true
+context:
+  name: Inline
+variants:
+  - name: action
+    context:
+      link-class: link-action

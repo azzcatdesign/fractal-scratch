@@ -1,0 +1,51 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__link {
+  @include type('button--small');
+  @include focus-ring(var(--color-primary), 'inset');
+
+  margin: 0 4px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--color-bg-default);
+  border-radius: $border-radius-sm;
+  color: inherit;
+  text-decoration: none;
+  transition: $trans-dur-md background-color, color ease-in-out;
+  user-select: none;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &:active,
+  &.is-active {
+    box-shadow: inset 0 0 0 1px var(--primary-bg, var(--color-primary));
+    color: var(--color-primary);
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &::after { // Add back accessible minimum touch area of 44x44
+    content: "";
+    min-width: $touch-min;
+    width: 100%;
+    height: $touch-min;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

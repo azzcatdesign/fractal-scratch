@@ -1,0 +1,57 @@
+.brand-bg {
+  min-height: 100vh;
+  position: relative;
+  background-image:
+    var(--brand-image, url("../svg/city-graphic.svg")),
+    var(--brand-gradient, var(--color-gradient));
+  background-position:
+    var(--brand-position, bottom -3vh right),
+    0 0;
+  background-repeat: no-repeat;
+  background-size:
+    auto 95%,
+    100%;
+}
+
+.brand-bg__logo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 48px;
+  right: 56px;
+  color: $color-text-lightest;
+}
+
+.brand-bg__icon {
+  margin-right: 16px;
+  width: 28px;
+  height: 40px;
+}
+
+.brand-bg__logotext {
+  width: 122px;
+  height: 29px;
+}
+
+// Theme variants
+main[data-color-theme="cs-neutral"] {
+  .brand-bg {
+    --brand-gradient: linear-gradient(#{var(--color-gray-60)}, #{var(--color-gray-60)});
+  }
+}
+
+main[data-color-theme="questys"] {
+  .brand-bg {
+    --brand-image: url("../svg/questys-graphic.svg");
+    --brand-position: top center;
+  }
+
+  .brand-bg__logo {
+    display: flex;
+  }
+
+  .brand-bg__logotext {
+    width: 193px;
+    height: 60px;
+  }
+}

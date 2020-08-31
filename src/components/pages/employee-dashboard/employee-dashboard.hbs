@@ -1,0 +1,38 @@
+<div class="page">
+  <header>
+    {{> @navbar}}
+  </header>
+
+  {{> @employee-header}}
+
+  <aside>
+    {{> @page-menu}}
+  </aside>
+
+  <main>
+
+    <h1>{{theme}}</h1>
+
+    {{> @page-tabs}}
+
+    <ul>
+      {{> @row}}
+      {{> @row}}
+      {{> @row}}
+      {{> @row}}
+    </ul>
+
+    {{> @button text="foobar"}}
+
+    <form>
+      {{> @form-input}}
+      {{> @form-input}}
+    </form>
+
+  </main>
+
+</div>
+
+<footer>
+</footer>
+

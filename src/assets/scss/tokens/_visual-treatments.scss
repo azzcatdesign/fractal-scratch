@@ -1,0 +1,72 @@
+/**
+ * Border
+ */
+
+$border-solid-sm: 1px solid;
+$border-solid-md: 2px solid;
+$border-solid-lg: 4px solid;
+$border-solid-xl: 8px solid;
+
+/**
+ * Border Radius
+ */
+
+$border-radius-xs: 1px;
+$border-radius-sm: 3px;
+$border-radius-lg: 20px;
+$border-radius-round: 999em;
+
+// TODO: Update shadows to match new Figma.
+/*
+ * Shadows
+ * Double shadows for richness and UI harmony
+ */
+
+// Set the shadow color
+$color-shadow: hsl(223, 39%, 18%); /* #1C2640 */
+
+// Set the stacked shadows
+$shadow-sm: 0 2px 4px 0 rgba($color-shadow, 0.1), 0 1px 3px rgba($color-shadow, 0.15);
+$shadow-md: 0 8px 12px 0 rgba($color-shadow, 0.1), 0 4px 12px 0 rgba($color-shadow, 0.15); // Not in Figma, but may need midpoint shadow, see page.hbs.
+$shadow-lg: 0 6px 20px 0 rgba($color-shadow, 0.25), 0 4px 20px 0 rgba($color-shadow, 0.5);
+
+/**
+ * Animation
+ */
+
+$scale-up-hover: scale(1.2);
+$animation-spin: spin 0.8s infinite linear;
+$animation-rotate: spin 3s 1s infinite cubic-bezier(0.075, 0.82, 0.165, 1);
+$animation-bounce: bounce 1.8s 4 cubic-bezier(0.075, 0.82, 0.165, 1);
+
+/**
+ * Transition (no Presenter available)
+ * See https://marvelapp.com/styleguide/design/animation for demos
+ */
+
+/* Timing */
+
+// "transition duration" = "trans-dur"
+$trans-dur-sm: 80ms;
+$trans-dur-md: 0.15s;
+$trans-dur-lg: 0.3s;
+$trans-dur-xl: 0.5s;
+$trans-dur-xxl: 0.7s;
+
+/* Easing */
+
+// No curve. Good for color/opacity fades
+// "transition-timing-function" = "trans-tm-function"
+$trans-tm-function-linear: linear;
+
+// Slight curve. Good for subtle transitions
+$trans-tm-function-ease: ease;
+
+// Starts fast and decelerates as it progresses
+$trans-tm-function-cb-scaleIn: cubic-bezier(0, 0.89, 0.44, 1);
+
+// Starts slow and accelerates as it progresses
+$trans-tm-function-cb-scaleOut: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+// Springy feel. Good for drawing focus
+$trans-tm-function-cb-scaleUp: cubic-bezier(0.68, -0.55, 0.265, 1.55);

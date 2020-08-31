@@ -1,0 +1,40 @@
+<div class="overlay {{#if modifier}} overlay--{{modifier}} {{/if}}">
+  <div class="overlay__header">
+    <h3 class="overlay__title">
+      Title
+    </h3>
+    <button class="overlay__close button button--dim">
+      <svg class="overlay__icon">
+        <use xlink:href="{{path '/svg/svg.svg' }}#close" />
+      </svg>
+    </button>
+  </div>
+  <p class="overlay__body">
+    Lorem ipsum dolor sit amet
+  </p>
+  <div class="overlay__buttons {{#if buttonsModifier}} overlay__buttons--{{buttonsModifier}} {{/if}}">
+    <button class="button overlay__button">Button 1</button>
+    <button class="button button--secondary overlay__button">Button 2</button>
+    <button class="button button--tertiary overlay__button">Button 3</button>
+
+    {{#unless (eq _self.name "right")}}
+      <div class="overlay__icon-buttons">
+        <button class="button button--icon-only button--dim">
+          <svg class="overlay__icon" viewBox="0 0 18 21">
+            <use xlink:href="{{path '/svg/svg.svg' }}#copy" />
+          </svg>
+        </button>
+        <button class="button button--icon-only button--dim">
+          <svg class="overlay__icon" viewBox="0 0 18 21">
+            <use xlink:href="{{path '/svg/svg.svg' }}#trash" />
+          </svg>
+        </button>
+        <button class="button button--icon-only button--dim">
+          <svg class="overlay__icon overlay__icon--ellipsis-v" viewBox="0 0 4 13">
+            <use xlink:href="{{path '/svg/svg.svg' }}#ellipsis-v" />
+          </svg>
+        </button>
+      </div>
+    {{/unless}}
+  </div>
+</div>

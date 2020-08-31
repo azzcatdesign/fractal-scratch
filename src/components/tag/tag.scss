@@ -1,0 +1,17 @@
+.tag {
+  @include type('input-label');
+
+  display: inline-block;
+  border-radius: 3px;
+  color: var(--color-near-black);
+  padding: 4px 8px;
+  background-color: var(--color-bg-gray);
+}
+
+.tag--white {
+  background-color: var(--white);
+}
+
+.tag--category {
+  background-color: $color-cyan;
+}

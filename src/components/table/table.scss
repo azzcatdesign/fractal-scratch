@@ -1,0 +1,236 @@
+$column-padding: 16px;
+$avatar-size: 48px;
+
+// Basic Table Rules
+.table {
+  --table-padding: 20px;
+
+  width: 100%;
+  table-layout: fixed; // Faster algorithm: https://css-tricks.com/almanac/properties/t/table-layout/#benefits-of-a-fixed-layout-algorithm
+  white-space: nowrap;
+  border-collapse: separate;
+
+  td,
+  th {
+    vertical-align: middle;
+  }
+}
+
+// Set column widths for components
+.table__col--checkbox {
+  width: calc(var(--table-padding) + 20px + #{$column-padding});
+}
+
+.table__col--input-sm {
+  width: 60px + $column-padding;
+}
+
+.table__col--input-md {
+  width: 180px + $column-padding;
+}
+
+.table__col--input-lg {
+  width: 240px + $column-padding;
+}
+
+.table__col--select-sm {
+  width: 100px + $column-padding;
+}
+
+.table__col--select-md {
+  width: 200px + $column-padding;
+}
+
+.table__col--actions {
+  --action-button-width: 48px;
+
+  width: calc(64px + var(--action-button-width) + #{$column-padding} + var(--action-button-width)); // Offset actions with extra space from other table elements.
+}
+
+// Common table cell rules
+.table__cell {
+  padding: var(--table-padding) 0;
+  padding-right: $column-padding;
+  text-align: left;
+
+  &:first-child {
+    padding-left: var(--table-padding);
+  }
+}
+
+.table__cell--head {
+  font-weight: 500;
+  color: $color-text-darkest;
+}
+
+.table__cell--checkbox {
+  // override --table-padding, but push down to center with text.
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
+.table__cell--input,
+.table__cell--select {
+  --table-padding: 12px;
+}
+
+// Table actions (button group at end of row)
+.table__cell--actions {
+  --table-padding: 8px;
+}
+
+.table__action-buttons {
+  --action-button-width: 48px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  thead tr + tr & {
+    margin-right: var(--action-button-width); // push bookmark to left to align with bookmark buttons in body.
+  }
+}
+
+.table__action-button {
+  &.button--clear { // `--clear` vs. `--dim` b/c the row buttons used may not *always* have background of gray.
+    background-color: unset;
+
+    &:hover {
+      background-color: var(--color-gray-5); // Avoid flash of white that appears when `--clear` sits on gray background.
+      filter: none; // Don't need the extra darkening of background.
+    }
+  }
+
+  .button__icon--bookmark {
+    fill: var(--color-gray-50); // Fails AA Normal text, but passes Graphical Objects/UI components.
+  }
+
+  .button__icon--bookmark-checked {
+    display: none;
+  }
+
+  &.is-bookmarked {
+    .button__icon--bookmark {
+      display: none;
+    }
+
+    .button__icon--bookmark-checked {
+      display: block;
+    }
+  }
+}
+
+// Manage Employees Table Rules
+.table--manage {
+
+  // Set row colors
+  thead tr {
+    background-color: var(--color-bg-default);
+
+    + tr {
+      background-color: var(--color-bg-gray);
+    }
+  }
+
+  tbody tr {
+    background-color: var(--color-bg-gray);
+  }
+
+  .table__cell {
+    border-bottom: 1px solid var(--white);
+  }
+
+  // Special cell rules
+  .table__cell--name {
+    --table-padding: 8px;
+  }
+
+  .table__cell__person {
+    display: flex;
+    align-items: center;
+  }
+
+  .table__cell__img {
+    margin-right: $column-padding;
+    width: $avatar-size;
+    height: $avatar-size;
+    display: inline-block;
+    border-radius: $border-radius-round;
+    background-color: var(--color-gray-20);
+  }
+}
+
+// HR Setup Table rules {
+.table--setup {
+
+  // Set the column widths
+  .table__col:nth-child(2) {
+    width: 66%;
+  }
+
+  // Set row colors
+  thead tr {
+    background-color: var(--color-bg-default);
+  }
+
+  tbody tr {
+    background-color: var(--color-bg-gray);
+  }
+
+  .table__cell {
+    border-bottom: 1px solid var(--white);
+  }
+}
+
+// HR Setup: Table Add and Table Add Salary rules {
+.table--add,
+.table--add-salary {
+  --table-padding: 10px;
+
+  border: 1px solid var(--color-gray-5);
+  border-radius: $border-radius-sm;
+
+  .table__col--actions {
+    --action-button-width: 40px;
+  }
+
+  thead tr {
+    background-color: var(--color-bg-gray);
+  }
+
+  .table__cell {
+    &:first-child {
+      padding-left: calc(var(--table-padding) + 8px);
+    }
+  }
+
+  .table__cell--actions {
+    --table-padding: 0;
+
+    // Smaller than their usual size
+    .button__icon--copy,
+    .button__icon--trash,
+    .button__icon--bars {
+      width: 1.1em;
+      height: 1.1em;
+    }
+  }
+}
+
+.table--add {
+  // Set some column widths
+  .table__col:nth-child(1) {
+    width: 60%;
+  }
+}
+
+.table--add-salary {
+  // Set some column widths
+  .table__col:nth-child(1) {
+    width: 10%;
+  }
+
+  thead th:not(.table__cell--actions) {
+    font-weight: 400;
+    color: var(--color-gray-70);
+  }
+}

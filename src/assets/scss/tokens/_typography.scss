@@ -1,0 +1,151 @@
+@font-face {
+  font-family: Inter;
+  src: url('../fonts/Inter.var.woff2') format('woff2');
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: Roboto Mono;
+  src: url('../fonts/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Roboto Mono;
+  src: url('../fonts/RobotoMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url('../fonts/Raleway-Regular.ttf') format('truetype');
+}
+
+$font-size-body: 100%;
+$font-size-body-mobile: 90%;
+
+$line-height-body: 1.5;
+
+$font-family-text: Inter, Helvetica, Arial, sans-serif;
+$font-family-display: Raleway, Trebuchet MS, sans-serif;
+$font-family-code: "Roboto Mono", monospace;
+
+/// Type Specs
+/// A map of type specs, with a name and any of the following values:
+///   - 'size': a list containing font size and line height, unitless
+///   - 'weight': font-weight
+///   - 'letter-spacing': letter-spacing
+///   - 'family': font-family
+$type-specs: (
+  'body--emphasis': (
+    'size': [16, 21],
+    'weight': 600,
+  ),
+  'app-card-title': (
+    'size': [24, 28],
+    'family': $font-family-display,
+  ),
+  'body-featured': (
+    'size': [19, 23],
+  ),
+  'body-single-line': (
+    'size': [16, 16],
+  ),
+  'button': (
+    'size': [16, 16],
+    'weight': 500,
+  ),
+  'button--small': (
+    'size': [15, 15],
+    'weight': 500,
+  ),
+  'body-single-line--emphasis': (
+    'size': [16, 16],
+    'weight': 500,
+  ),
+  'body-small': (
+    'size': [14, 17],
+  ),
+  'body-small-single-line': (
+    'size': [14, 14],
+  ),
+  'detail-single-line': (
+    'size': [14, 14],
+  ),
+  'detail-single-line--emphasis': (
+    'size': [14, 14],
+    'weight': 500,
+  ),
+  'input-action': (
+    'size': [15, 18],
+  ),
+  'input-hint': (
+    'size': [13, 18],
+  ),
+  'input-label': (
+    'size': [14, 20],
+  ),
+  'input': (
+    'size': [16, 19],
+  ),
+  'marketing-title': (
+    'size': [40, 47],
+    'family': $font-family-display,
+  ),
+  'menu-list-item': (
+    'size': [17, 21],
+  ),
+  'menu-section-title': (
+    'size': [14, 17],
+  ),
+  'navbar-item': (
+    'size': [16, 21],
+  ),
+  'overlay-title': (
+    'size': [24, 24],
+    'weight': 500
+  ),
+  'page-section-title': (
+    'size': [21, 31.5],
+  ),
+  'page-title': (
+    'size': [24, 36],
+  ),
+  'page-title-single-line': (
+    'size': [24, 24],
+  ),
+  'page-section': (
+    'size': [21, 31.5],
+  ),
+  'record-title': (
+    'size': [23, 24],
+  ),
+  'record-title-small': (
+    'size': [18, 18],
+  ),
+  'sidebar-nav-title': (
+    'size': [20, 20],
+  ),
+);
+
+@mixin type($name) {
+  $-type-spec: map-get($type-specs, $name);
+
+  @if map-get($-type-spec, 'weight') {
+    font-weight: map-get($-type-spec, 'weight');
+  }
+
+  @if map-get($-type-spec, 'size') {
+    $-font-size: nth(map-get($-type-spec, 'size'), 1);
+
+    font-size: $-font-size / 16 * 1rem;
+    line-height: nth(map-get($-type-spec, 'size'), 2) / $-font-size;
+  }
+
+  @if map-get($-type-spec, 'letter-spacing') {
+    letter-spacing: map-get($-type-spec, 'letter-spacing');
+  }
+
+  @if map-get($-type-spec, 'family') {
+    font-family: map-get($-type-spec, 'family');
+  }
+}

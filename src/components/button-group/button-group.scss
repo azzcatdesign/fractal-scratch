@@ -1,0 +1,12 @@
+// Grouped Buttons
+.button-group {
+  display: inline-flex;
+
+  .button {
+    margin-right: var(--group-margin, 28px);
+  }
+}
+
+.button-group--right {
+  justify-content: flex-end;
+}

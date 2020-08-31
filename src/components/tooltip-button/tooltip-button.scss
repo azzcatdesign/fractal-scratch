@@ -1,0 +1,26 @@
+// Icon Only Buttons w/accessible tooltip
+.tooltip-button {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.tooltip-button__tooltip {
+  @include type('button--small');
+
+  padding: 10px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: calc(100% + 12px);
+  font-size: 0.875rem;
+  background-color: var(--color-bg-dark);
+  color: $color-text-lightest;
+  border-radius: $border-radius-sm;
+
+  .button:hover + &,
+  .button:focus + & {
+    display: block;
+  }
+}

@@ -1,0 +1,47 @@
+<hr>
+
+<h2 class="f-heading">{{_self.title}}</h2>
+
+{{#each types}}
+
+  {{#each ../styles}}
+
+    {{#each ../../notifications}}
+
+      <div>
+
+        <h3 class="f-heading">
+          {{ ../../../_self.title }}
+          ({{../style}})
+          ({{../../type}})
+          {{#if disabled}}(Disabled){{/if}}
+        </h3>
+
+        <div class="tooltip-button">
+          <button class="button button--icon-only
+            button--{{../../type}}
+            {{#if (eq ../style "small")}} button--small {{/if}}
+            {{#if modifier}} button--{{modifier}} {{/if}}
+            {{#if notification}} has-notification {{/if}}"
+            {{#if disabled}} disabled {{/if}}
+            aria-describedby="button-desc">
+            <span class="button__icon">
+              <svg class="icon" viewBox="0 0 32 32"
+              role="presentation">
+                <circle cx="16" cy="16" fill="none" r="14"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+            </span>
+
+            <span class="u-screen-reader-only">Action</span>
+          </button>
+          <div role="tooltip" class="tooltip-button__tooltip" id="button-desc">Manage Action</div>
+        </div>
+
+      </div>
+
+    {{/each}}
+
+  {{/each}}
+
+{{/each}}

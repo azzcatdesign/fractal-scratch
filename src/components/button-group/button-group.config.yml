@@ -1,0 +1,35 @@
+title: Button Group
+collated: true
+context:
+  text: Group Left
+  wrapped: false
+  types:
+    - type: default
+    - type: secondary
+    - type: tertiary
+  styles:
+    - style: default
+variants:
+  - name: right
+    context:
+      text: Group Right
+      modifier: right
+      types:
+        - type: tertiary
+        - type: secondary
+        - type: default
+  - name: small
+    context:
+      text: Group
+      styles:
+        - style: small
+  - name: small right
+    context:
+      text: Group Right
+      modifier: right
+      styles:
+        - style: small
+      types:
+        - type: tertiary
+        - type: secondary
+        - type: default

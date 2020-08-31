@@ -1,0 +1,5 @@
+variants:
+  - name: loveland
+    label: Loveland
+  - name: cs-neutral
+    label: CS Neutral

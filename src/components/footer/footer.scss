@@ -1,0 +1,41 @@
+// Global Footer
+$footer-height: 70px;
+
+.footer {
+  margin: 0 auto;
+  height: $footer-height;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--color-bg-gray);
+}
+
+.footer__brand {
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__brand__icon {
+  margin-right: 12px;
+  width: 22px;
+  height: 30px;
+  color: var(--color-secondary);
+}
+
+.footer__brand__logotext {
+  width: 95px;
+  height: 23px;
+  color: $color-text-body;
+}
+
+.footer__app-version {
+  @include type('body-small');
+
+  color: $color-text-quiet; // Figma calls for var(--color-gray-40) which fails AA even more than this value.
+
+  @media (max-width: 1462px) { // 22 + $width-wide
+    margin-right: 22px;
+  }
+}

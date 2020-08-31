@@ -1,0 +1,190 @@
+/**
+ * UI Hued Grays, hsl = hue, saturation, lightness
+ */
+
+:root {
+  --black: hsl(0, 0%, 0%);
+  --color-near-black: hsl(223, 39%, 18%); // #1C2640
+  --color-near-black-overlay: hsla(223, 39%, 18%, 0.97); // #1c2640f7
+  --color-gray-90: hsl(223, 24%, 26%); // #323B52
+  --color-gray-80: hsl(223, 17%, 34%); // #474F64
+  --color-gray-70: hsl(223, 12%, 41%); // #5D6476
+  --color-gray-60: hsl(224, 9%, 48.5%); // #717687
+  --color-gray-50: hsl(223, 8%, 56%); // #878C99
+  --color-gray-40: hsl(223, 8%, 64%); // #9DA1AB
+  --color-gray-30: hsl(228, 7%, 72%); // #B3B5BD
+  --color-gray-20: hsl(223, 7%, 80%); // #C8CACF
+  --color-gray-10: hsl(210, 6%, 87%); // #DDDFE1
+  --color-gray-5: hsl(210, 5%, 91%); // #E8E9EA
+  --color-gray-background: hsl(220, 16%, 96%); // #F4F5F7 new background
+  --color-gray-background-light: hsl(0, 0%, 98%); // #FAFAFA background light
+  --white: hsl(0, 0%, 100%);
+}
+
+// $black: hsl(0, 0%, 0%);
+// $color-near-black: hsl(223, 39%, 18%); // #1C2640
+// $color-near-black-overlay: hsla(223, 39%, 18%, 0.97); // #1c2640f7
+// $color-gray-90: hsl(223, 24%, 26%); // #323B52
+// $color-gray-80: hsl(223, 17%, 34%); // #474F64
+// $color-gray-70: hsl(223, 12%, 41%); // #5D6476
+// $color-gray-60: hsl(224, 9%, 48.5%); // #717687
+// $color-gray-50: hsl(223, 8%, 56%); // #878C99
+// $color-gray-40: hsl(223, 8%, 64%); // #9DA1AB
+// $color-gray-30: hsl(228, 7%, 72%); // #B3B5BD
+// $color-gray-20: hsl(223, 7%, 80%); // #C8CACF
+// $color-gray-10: hsl(210, 6%, 87%); // #DDDFE1
+// $color-gray-5: hsl(210, 5%, 91%); // #E8E9EA
+// $color-gray-background: hsl(220, 16%, 96%); // #F4F5F7 new background
+// $color-gray-background-light: hsl(0, 0%, 98%); // #FAFAFA background light
+// var(--white): hsl(0, 0%, 100%);
+
+/**
+ * Color vars mapped to semantic vars
+ */
+
+:root {
+  /* General Backgrounds */
+  --color-bg-default: var(--white);
+  --color-bg-gray: var(--color-gray-background);
+  --color-bg-gray-light: var(--color-gray-background-light);
+  --color-bg-dark: var(--color-near-black);
+
+  /* Text */
+  --color-text-body: var(--color-near-black);
+  --color-text-lightest: var(--white);
+  --color-text-darkest: var(--black);
+  --color-text-quiet: var(--color-gray-60);
+  --color-text-title: var(--color-near-black);
+}
+
+/* General Backgrounds */
+$color-bg-default: var(--white);
+$color-bg-gray: var(--color-gray-background);
+$color-bg-gray-light: var(--color-gray-background-light);
+$color-bg-dark: var(--color-near-black);
+
+/* Text */
+$color-text-body: var(--color-near-black);
+$color-text-lightest: var(--white);
+$color-text-darkest: var(--black);
+$color-text-quiet: var(--color-gray-60);
+$color-text-title: var(--color-near-black);
+
+/**
+ * Application Colors, hsl = hue, saturation, lightness
+ */
+
+// These colors will not be subject to theming.
+$color-cyan: hsl(183, 54%, 85%); // #c6ecee
+
+:root {
+  --color-cyan: hsl(183, 54%, 85%); // #c6ecee
+
+  // Alert
+  --color-base-alert-hs: 335, 100%;
+  --color-alert: hsl(var(--color-base-alert-hs), 43%); // #DD005D, AA pass
+  --color-alert-shade: hsl(var(--color-base-alert-hs), 38%);
+  --color-alert-tint: hsl(var(--color-base-alert-hs), 97%);
+
+  // Caution
+  --color-base-caution-hs: 46, 100%;
+  --color-caution: hsl(var(--color-base-caution-hs), 50%); // #FFC400, AA fail
+  --color-caution-shade: hsl(var(--color-base-caution-hs), 45%); // AA fail
+  --color-caution-tint: hsl(var(--color-base-caution-hs), 95%);
+
+  // Info
+  --color-base-info-hs: 195, 100%;
+  --color-info: hsl(var(--color-base-info-hs), 48%); // #00B9F4, AA fail
+  --color-info-shade: hsl(var(--color-base-info-hs), 40%); // AA fail
+  --color-info-tint: hsl(var(--color-base-info-hs), 95%);
+
+  // Success
+  --color-base-success-hs: 173, 100%;
+  --color-success: hsl(var(--color-base-success-hs), 37%); // #00BBA5, AA fail
+  --color-success-shade: hsl(var(--color-base-success-hs), 26%); // AA pass
+  --color-success-tint: hsl(var(--color-base-success-hs), 95%);
+}
+
+/**
+ * Colors Theming Options
+ */
+
+// Default Color Theme. Brighter tones than neutral theme.
+:root,
+[data-color-theme="cs-default"] {
+
+  // Primary CS-Default
+  --color-base-primary-hs: 223, 84%;
+  --color-primary: hsl(var(--color-base-primary-hs), 50%); // #1450EB
+  --color-primary-shade: hsl(var(--color-base-primary-hs), 40%);
+  --color-primary-tint: hsl(var(--color-base-primary-hs), 95%);
+
+  // Secondary CS-Default
+  --color-secondary: hsl(189, 100%, 28%); // #00798F
+
+  // Secondary Alt CS-Default
+  --color-secondary-alt: hsl(196, 72%, 39%); // #1C84AB
+
+  // Tertiary CS-Default
+  --color-tertiary: hsl(261, 88%, 30%); // #380990
+
+  // Tertiary Alt CS-Default
+  --color-tertiary-alt: hsl(260, 50%, 34%); // #482B80
+
+  // Gradient CS-Default
+  --color-gradient:
+    linear-gradient(
+      270.17deg,
+      var(--color-secondary) 0.27%,
+      var(--color-secondary-alt) 27.79%,
+      var(--color-tertiary-alt) 99.97%
+    );
+}
+
+// CS Neutral Color Theme
+[data-color-theme="cs-neutral"] {
+
+  // Primary CS-Neutral
+  --color-base-primary-hs: 223, 49%;
+  --color-primary: hsl(var(--color-base-primary-hs), 52%); // #496BC0
+  --color-primary-shade: hsl(var(--color-base-primary-hs), 37%);
+  --color-primary-tint: hsl(220, 46%, 95%); // #ECF0F8 slightly different -hs on this color
+
+  // Secondary CS-Neutral
+  --color-secondary: hsl(221, 8%, 53%); // #7D8390, AA Fail
+
+  // Tertiary CS-Neutral
+  --color-tertiary: hsl(223, 25%, 40%); // #4C5B80
+
+  // Gradient CS-Neutral
+  --color-gradient:
+    linear-gradient(
+      270.17deg,
+      var(--color-secondary) 0.27%,
+      var(--color-tertiary) 99.97%
+    );
+}
+
+// Loveland Color Theme
+[data-color-theme="loveland"] {
+
+  // Primary Loveland
+  --color-base-primary-hs: 223, 96%;
+  --color-primary: hsl(var(--color-base-primary-hs), 42%); // #043DD3
+  --color-primary-shade: hsl(var(--color-base-primary-hs), 27%);
+  --color-primary-tint: hsl(225, 100%, 96%); // #EBF0FF slightly different -hs on this color
+
+  // Secondary Loveland
+  --color-secondary: hsl(189, 100%, 28%); // #00798F
+
+  // Tertiary Loveland
+  --color-tertiary: hsl(201, 63%, 30%); // #1C5B7D
+
+  // Gradient Loveland
+  --color-gradient:
+    linear-gradient(
+      270.17deg,
+      var(--color-secondary) 0.27%,
+      var(--color-tertiary) 99.97%
+    );
+}

@@ -1,0 +1,123 @@
+.record {
+  --record-padding: 8px 16px;
+
+  padding: var(--record-padding);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-bg-default);
+
+  > .tooltip-button {
+    position: relative;
+    top: -6px; // align ellipsis-v w/top of title
+  }
+}
+
+.record--header-large,
+.record--header-mini {
+  justify-content: space-between;
+}
+
+.record--header-large {
+  --record-padding: 24px 32px;
+}
+
+.record--header-mini {
+  --record-padding: 12px 32px;
+
+  border-radius: $border-radius-sm 0 0 0;
+  box-shadow: $shadow-sm;
+}
+
+.record__group--actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  > * + * {
+    margin-left: 1rem;
+  }
+
+  .button--icon-only + .button--icon-only {
+    margin-left: 6px;
+  }
+}
+
+.record__group--data {
+  display: grid;
+  grid-template-areas:
+    "image title title"
+    "image subtitle subtitle"
+    "image data-list data-list";
+  column-gap: 16px;
+  row-gap: 8px;
+
+  .record--header-mini & {
+    grid-template-areas: "image title";
+  }
+}
+
+.record__image {
+  --record-img-size: 48px;
+
+  width: var(--record-img-size);
+  height: var(--record-img-size);
+  grid-area: image;
+  border-radius: $border-radius-round;
+  background-color: var(--color-gray-5);
+
+  .record--header-large & {
+    --record-img-size: 64px;
+  }
+
+  .record--header-mini & {
+    --record-img-size: 40px;
+  }
+}
+
+.record__title {
+  @include type('record-title');
+
+  grid-area: title;
+
+  .record--header-mini & {
+    align-self: center;
+  }
+}
+
+.record__title--small {
+  @include type('record-title-small');
+
+  grid-area: title;
+}
+
+.record__subtitle {
+  grid-area: subtitle;
+}
+
+.record__title,
+.record__subtitle {
+  .record__data-point {
+    margin-left: 0.85em;
+  }
+}
+
+.record__data-point {
+  @include type('body-small-single-line');
+
+  color: $color-text-quiet;
+}
+
+.record__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-area: data-list;
+
+  > * + * {
+    &::before {
+      content: '•';
+      color: var(--color-gray-20);
+      padding: 0 8px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="table-footer">
+  <p>
+    <span class="table-footer--emphasis">1–10 </span>of 43</p>
+
+  {{> '@pagination'}}
+
+  <label class="select-input select-input--table-footer">
+    <span class="select-input__content">
+      <select class="select-input__select" aria-label="Display per page.">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+      <svg class="select-input__icon" aria-hidden="true">
+        <use xlink:href="/svg/svg.svg#triangle-down"></use>
+      </svg>
+    </span>
+    <span class="select-input__quantifier" aria-hidden="true">per page</span>
+  </label>
+</div>

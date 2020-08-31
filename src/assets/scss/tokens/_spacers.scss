@@ -1,0 +1,54 @@
+/**
+ * @tokens Spacing
+ * @presenter Spacing
+ */
+
+// Have to do the math manually from calc values below in order to display in Storybook.
+$space-4xs: 0.125em; /* 2px (calc) */
+$space-3xs: 0.25em; /* 4px (calc) */
+$space-2xs: 0.375em; /* 6px (calc) */
+$space-xs: 0.5em; /* 8px (calc) */
+$space-sm: 0.75em; /* 12px (calc) */
+$space-md: 1em; /* 16px (calc), $space-base */
+$space-lg: 1.25em; /* 20px (calc) */
+$space-xl: 2.25em; /* 36px (calc) */
+$space-2xl: 3.5em; /* 56px (calc) */
+$space-3xl: 5.75em; /* 92px (calc) */
+$space-4xl: 9.25em; /* 148px (calc) */
+
+// These are REAL values. Change here and make sure to hard-code the new value above for rendering in Storybook.
+// Based on https://codyhouse.co/ds/globals/spacing. Fibonacci sequence from $space-md up.
+$space-base: 1em; /* Note: if you use 'em' the spacing will scale with font-size. Use 'rem' for static sizing. */
+$space-4xs: 0.125 * $space-base; /* 2px */
+$space-3xs: 0.25 * $space-base; /* 4px */
+$space-2xs: 0.375 * $space-base; /* 6px */
+$space-xs: 0.5 * $space-base; /* 8px */
+$space-sm: 0.75 * $space-base; /* 12px */
+$space-md: 1 * $space-base; /* 16px */
+$space-lg: 1.25 * $space-base; /* 20px */
+$space-xl: 2.25 * $space-base; /* 36px */
+$space-2xl: 3.5 * $space-base; /* 56px */
+$space-3xl: 5.75 * $space-base; /* 92px */
+$space-4xl: 9.25 * $space-base; /* 148px */
+
+// Tokens for common padding and margins. See https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+
+// Padding, all sides equal
+$space-inset-xs: $space-xs; /* padding: 8px; */
+$space-inset-sm: $space-sm; /* padding: 12px; */
+$space-inset-md: $space-md; /* padding: 16px; */
+$space-inset-lg: $space-lg; /* padding: 20px; */
+$space-inset-xl: $space-xl; /* padding: 36px; */
+
+// Padding, lesser space top & bottom, see https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+$space-inset-squish-sm: $space-sm $space-md; /* padding: 12px 16px; */
+$space-inset-squish-md: $space-md 1.5 * $space-md; /* padding: 16px 24px */
+$space-inset-squish-lg: $space-lg $space-xl; /* padding: 20px 36px; */
+
+// Bottom margins for stacking
+// Remove commented-out spacers if they're not reflected in mocks.
+// $space-stack-xs: 0 0 $space-3xs 0; /* margin-bottom: 4px; */
+$space-stack-sm: 0 0 $space-xs 0; /* margin-bottom: 8px; */
+$space-stack-md: 0 0 $space-base 0; /* margin-bottom: 16px */
+$space-stack-lg: 0 0 $space-lg 0; /* margin-bottom: 32px; */
+// $space-stack-xl: 0 0 $space-xl 0; /* margin-bottom: 52px */

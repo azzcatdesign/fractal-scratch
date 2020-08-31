@@ -1,0 +1,86 @@
+.info-box {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-gray);
+  border-radius: $border-radius-sm;
+
+  & + & {
+    margin-top: 24px;
+  }
+}
+
+.info-box__header {
+  @include type('detail-single-line');
+
+  position: relative;
+  align-self: flex-start;
+  padding: 12px;
+  background: var(--color-near-black);
+  color: $color-text-lightest;
+
+  &::after {
+    // Fake "triangle" pseudo-element
+    //
+    // line-height of type spec plus vertical padding
+    //
+    // This needs to be a calc of rems plus pixels for zooming and font size
+    // changes by user
+    //
+    // Dividing by 16 for ratio to base font size
+    $-v-border: calc(((14 / 16) * 1rem + 24px) / 2);
+
+    position: absolute;
+    top: 0;
+    left: 100%;
+    content: '';
+    display: block;
+    width: 20px;
+    height: 100%;
+    background-position: 50% 50%;
+    border-top: $-v-border solid var(--color-near-black);
+    border-right: 10px solid transparent;
+    border-bottom: $-v-border solid transparent;
+    border-left: 10px solid var(--color-near-black);
+
+    // // This doesn't work; can't get the corners of the rectangle to line up
+    // // perfectly with the gradient "edge".
+    // background-image: linear-gradient(120deg, var(--color-near-black) 0%, var(--color-near-black) 50%, transparent 50%, transparent 100%);
+    // background-size: 100%;
+  }
+}
+
+.info-box__text {
+  padding: 20px;
+}
+
+.info-box__item {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  padding: 14px 18px;
+  background: var(--white);
+  border-left: 1px solid var(--color-primary);
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+}
+
+.info-box__item-name {
+  margin-right: auto;
+}
+
+.info-box__item-detail {
+  @include type('body-small');
+
+  color: $color-text-quiet;
+}
+
+.info-box__progress-name {
+  @include type('body-small');
+
+  margin-right: 24px;
+}
+
+.info-box__progress-meter {
+  width: 113px;
+  height: 6px;
+}

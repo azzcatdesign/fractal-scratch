@@ -1,0 +1,59 @@
+/**
+ * Z-index
+ */
+
+$z-normal: 0;
+$z-minus: -1;
+$z-plus: 10;
+$z-high: 20;
+$z-higher: 30;
+$z-nav: 40;
+$z-dialog: 80;
+$z-nuclear: 100;
+
+/**
+ * Media Widths: Not included in Storybook presenters
+ * Useful, nonetheless
+ */
+
+$width-sm: 760px;
+$width-md: 1024px;
+$width-lg: 1180px;
+$width-wide: 1440px;
+$width-to-sm: $width-sm - 1;
+$width-to-md: $width-md - 1;
+$width-to-lg: $width-lg - 1;
+$width-to-wide: $width-wide - 1;
+$width-from-sm: $width-sm + 1;
+$width-from-md: $width-md + 1;
+$width-from-lg: $width-lg + 1;
+$width--full: 100vw;
+
+/**
+ * SASS mixins for media queries
+ */
+@mixin for-small-only {
+  @media (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin for-medium-up {
+  @media (min-width: 761px) {
+    @content;
+  }
+}
+
+@mixin for-large-up {
+  @media (min-width: 1180px) {
+    @content;
+  }
+}
+
+// Not sure how much in regards to media queries this project will yet need. However, you cannot interpolate custom properties into media queries, but you can use SASS variables.  Keep this Sass MQ library in back pocket for a more complex solution: https://eduardoboucas.github.io/include-media/
+// Or add this: https://github.com/sass-mq/sass-mq
+// Recommended by James: https://github.com/at-import/breakpoint
+
+// Minimum touch width/height
+// https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+$touch-min: 44px;

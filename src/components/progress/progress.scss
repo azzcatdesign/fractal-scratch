@@ -1,0 +1,29 @@
+.progress {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border: none;
+  border-radius: $border-radius-round;
+  background: var(--color-gray-20);
+  vertical-align: 0.2em; // vertically center within body-text height.
+
+  // The "outer"/"background" part of the progress bar
+  &::-webkit-progress-bar {
+    border-radius: $border-radius-round;
+    background: var(--color-gray-5);
+  }
+
+  // The "filled" part of the progress bar
+  // Same as -webkit-progress-value, can't be combined into single selector
+  &::-moz-progress-bar {
+    border-radius: $border-radius-round 0 0 $border-radius-round;
+    background: var(--color-success);
+  }
+
+  // The "filled" part of the progress bar
+  // Same as -moz-progress-bar, can't be combined into single selector
+  &::-webkit-progress-value {
+    border-radius: $border-radius-round 0 0 $border-radius-round;
+    background: var(--color-success);
+  }
+}

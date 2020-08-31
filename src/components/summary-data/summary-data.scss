@@ -1,0 +1,111 @@
+$data-gap: 40px;
+
+// Summary Data row on gray background
+.summary-data-row {
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  // gap: $data-gap; // Not supported by Safari, even though Safari *thinks* it supports this when using @support directive!
+  justify-content: flex-start;
+  background-color: var(--color-bg-gray);
+  border-radius: $border-radius-sm;
+}
+
+.summary-data-row__pair {
+  margin: 0 $data-gap / 2;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.summary-data-row__label,
+.summary-data-card__label {
+  @include type('body-small-single-line');
+
+  color: var(--color-gray-70);
+}
+
+.summary-data-row__value {
+  @include type('body-single-line');
+
+  margin-top: 14px;
+}
+
+.summary-data-row__value--multi {
+  display: flex;
+  align-items: center;
+
+  > * + * {
+    &::before {
+      content: '•';
+      color: var(--color-gray-20);
+      padding: 0 8px;
+    }
+  }
+}
+
+// Summary Data Card w/box-shadow and left-border
+.summary-data-card {
+  padding: 16px 20px;
+  display: grid;
+  align-items: start;
+  grid-template-columns: auto auto 44px;
+  grid-template-rows: 2;
+  grid-template-areas:
+    "title-group data-points actions"
+    "label-group data-points actions";
+  border-left: 1px solid var(--color-primary);
+  box-shadow: $shadow-sm;
+
+  + .summary-data-card {
+    margin-top: 16px;
+  }
+}
+
+.summary-data-card__label-title {
+  // leave type as default body for line-height of 24px when there are multiple titles.
+}
+
+.summary-data-card__label-title-group {
+  margin-bottom: 6px;
+  grid-area: title-group;
+}
+
+.summary-data-card__label-group {
+  grid-area: label-group;
+}
+
+.summary-data-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-area: actions;
+
+  // Align the ellipsis-v dots with text and right padding.
+  .button--icon-only {
+    position: relative;
+    top: -8px;
+    right: -10px;
+  }
+}
+
+.summary-data-card__data-point-group {
+  padding-top: 4px; // align text baseline with label-title
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-area: data-points;
+}
+
+.summary-data-card__data-point {
+  @include type('body-small');
+
+  + .summary-data-card__data-point {
+    margin-left: 16px;
+  }
+}

@@ -1,0 +1,32 @@
+.row-header {
+  display: flex;
+  padding: 4.5px 0 7.5px;
+}
+
+.row-header__title {
+  @include type('body-featured');
+
+  font-weight: 500; // TODO: double check this
+  margin-right: auto;
+}
+
+.row-header__action {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &::after {
+    // TODO: remove this var definition when PR 24 has been merged
+    $touch-min: 44px !default;
+
+    content: '';
+    height: $touch-min;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
