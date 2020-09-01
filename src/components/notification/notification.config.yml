@@ -1,8 +1,0 @@
-title: Notification
-collated: true
-display:
-  max-width: 400px
-variants:
-  - name: unread
-    context:
-      modifier: unread

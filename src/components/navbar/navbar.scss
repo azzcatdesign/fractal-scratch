@@ -59,12 +59,6 @@ $avatar-diameter: 40px;
   fill: var(--white);
 }
 
-.navbar__brand__logotext { // 'CitySuite' svg, not text
-  width: 100px;
-  height: 24px;
-  color: var(--white);
-}
-
 .navbar__brand__text {
   @include type('page-title-single-line');
 
@@ -158,7 +152,7 @@ $avatar-diameter: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: var(--color-gray-50); // TODO: this doesn't meet AA, left EP comment on Figma.
+  color: var(--color-gray-60);
 
   .navbar__sub-menu--apps & {
     height: auto;
@@ -386,6 +380,5 @@ $avatar-diameter: 40px;
   margin-left: 12px;
   padding: 0 0 0 10px;
   // Oversized radii, ie: $border-radius-round,  will cancel out small radii proportionally when sized down to max size of rectangle. Need to size to 1/2 container for 'round' corners that don't break smaller radii corners.
-  // See https://codepen.io/jsit/pen/WNrXLoL
   border-radius: $border-radius-sm $navbar-button-height / 2 $navbar-button-height / 2 $border-radius-sm;
 }
