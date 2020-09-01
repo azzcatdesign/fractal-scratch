@@ -5,16 +5,24 @@ $avatar-diameter: 40px;
 
 .navbar {
   margin: 0 auto;
-  max-width: $width-wide;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
-// Note: no background-color as per Figma. Gradient applied in .yml for approximation/visualization of menu items as per Figma.
 .navbar--global {
   height: $navbar-height;
   color: var(--color-text-lightest);
+
+  &::before {
+    content: '';
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    background: var(--color-gradient);
+    z-index: $z-minus;
+  }
 }
 
 // Navbar Groups
@@ -38,7 +46,7 @@ $avatar-diameter: 40px;
   margin-right: 66px;
   position: relative;
 
-  // Dark angled color bar behind ellipsis-v icon & brand.
+  // Dark angled color bar behind ellipsis-v icon & brand. You'll see a gray box to left where it spans the Fractal 'body' margin.
   &::before {
     content: "";
     width: 100vw;

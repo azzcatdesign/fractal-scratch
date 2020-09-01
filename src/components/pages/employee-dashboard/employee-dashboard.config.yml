@@ -1,5 +1,5 @@
 variants:
   - name: color-theme-teal
-    label: color-theme-teal
+    label: Teal Theme
   - name: color-theme-neutral
-    label: CS Neutral
+    label: Neutral Theme
