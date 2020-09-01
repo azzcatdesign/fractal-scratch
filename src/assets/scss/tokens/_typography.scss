@@ -36,16 +36,8 @@ $font-family-code: "Roboto Mono", monospace;
 ///   - 'letter-spacing': letter-spacing
 ///   - 'family': font-family
 $type-specs: (
-  'body--emphasis': (
-    'size': [16, 21],
-    'weight': 600,
-  ),
-  'app-card-title': (
-    'size': [24, 28],
-    'family': $font-family-display,
-  ),
   'body-featured': (
-    'size': [19, 23],
+    'size': [19, 24],
   ),
   'body-single-line': (
     'size': [16, 16],
@@ -55,7 +47,7 @@ $type-specs: (
     'weight': 500,
   ),
   'button--small': (
-    'size': [15, 15],
+    'size': [15, 15], // OK for odd line-height, as it's all centered within 40px tall button.
     'weight': 500,
   ),
   'body-single-line--emphasis': (
@@ -63,20 +55,10 @@ $type-specs: (
     'weight': 500,
   ),
   'body-small': (
-    'size': [14, 17],
+    'size': [14, 18],
   ),
   'body-small-single-line': (
     'size': [14, 14],
-  ),
-  'detail-single-line': (
-    'size': [14, 14],
-  ),
-  'detail-single-line--emphasis': (
-    'size': [14, 14],
-    'weight': 500,
-  ),
-  'input-action': (
-    'size': [15, 18],
   ),
   'input-hint': (
     'size': [13, 18],
@@ -85,27 +67,20 @@ $type-specs: (
     'size': [14, 20],
   ),
   'input': (
-    'size': [16, 19],
-  ),
-  'marketing-title': (
-    'size': [40, 47],
-    'family': $font-family-display,
+    'size': [16, 20],
   ),
   'menu-list-item': (
-    'size': [17, 21],
-  ),
-  'menu-section-title': (
-    'size': [14, 17],
+    'size': [17, 22],
   ),
   'modal-title': (
     'size': [24, 24],
     'weight': 500
   ),
   'navbar-item': (
-    'size': [16, 21],
+    'size': [16, 22],
   ),
   'page-section-title': (
-    'size': [21, 31.5],
+    'size': [22, 32],
   ),
   'page-title': (
     'size': [24, 36],
@@ -113,17 +88,11 @@ $type-specs: (
   'page-title-single-line': (
     'size': [24, 24],
   ),
-  'page-section': (
-    'size': [21, 31.5],
-  ),
   'record-title': (
-    'size': [23, 24],
+    'size': [22, 24],
   ),
   'record-title-small': (
     'size': [18, 18],
-  ),
-  'sidebar-nav-title': (
-    'size': [20, 20],
   ),
 );
 

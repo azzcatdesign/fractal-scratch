@@ -145,7 +145,7 @@ $avatar-diameter: 40px;
 }
 
 .navbar__sub-menu__section-title {
-  @include type('menu-section-title');
+  @include type('body-small');
 
   padding-left: 14px;
   height: $navbar-button-height;
