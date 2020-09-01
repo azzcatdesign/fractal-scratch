@@ -1,0 +1,40 @@
+<div class="modal {{#if modifier}} modal--{{modifier}} {{/if}}">
+  <div class="modal__header">
+    <h3 class="modal__title">
+      Title
+    </h3>
+    <button class="modal__close button button--dim">
+      <svg class="modal__icon">
+        <use xlink:href="{{path '/svg/svg.svg' }}#close" />
+      </svg>
+    </button>
+  </div>
+  <p class="modal__body">
+    Lorem ipsum dolor sit amet
+  </p>
+  <div class="modal__buttons {{#if buttonsModifier}} modal__buttons--{{buttonsModifier}} {{/if}}">
+    <button class="button modal__button">Button 1</button>
+    <button class="button button--secondary modal__button">Button 2</button>
+    <button class="button button--tertiary modal__button">Button 3</button>
+
+    {{#unless (eq _self.name "right")}}
+      <div class="modal__icon-buttons">
+        <button class="button button--icon-only button--dim">
+          <svg class="modal__icon" viewBox="0 0 18 21">
+            <use xlink:href="{{path '/svg/svg.svg' }}#copy" />
+          </svg>
+        </button>
+        <button class="button button--icon-only button--dim">
+          <svg class="modal__icon" viewBox="0 0 18 21">
+            <use xlink:href="{{path '/svg/svg.svg' }}#trash" />
+          </svg>
+        </button>
+        <button class="button button--icon-only button--dim">
+          <svg class="modal__icon modal__icon--ellipsis-v" viewBox="0 0 4 13">
+            <use xlink:href="{{path '/svg/svg.svg' }}#ellipsis-v" />
+          </svg>
+        </button>
+      </div>
+    {{/unless}}
+  </div>
+</div>

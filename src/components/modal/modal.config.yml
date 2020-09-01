@@ -1,4 +1,4 @@
-title: Overlay
+title: Modal
 collated: true
 display:
   max-width: 700px
@@ -6,6 +6,3 @@ variants:
   - name: right
     context:
       buttonsModifier: right
-  - name: side
-    context:
-      modifier: side
