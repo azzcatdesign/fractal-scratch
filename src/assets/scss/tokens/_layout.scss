@@ -12,8 +12,7 @@ $z-dialog: 80;
 $z-nuclear: 100;
 
 /**
- * Media Widths: Not included in Storybook presenters
- * Useful, nonetheless
+ * Media Widths
  */
 
 $width-sm: 760px;
@@ -50,9 +49,9 @@ $width--full: 100vw;
   }
 }
 
-// Not sure how much in regards to media queries this project will yet need. However, you cannot interpolate custom properties into media queries, but you can use SASS variables.  Keep this Sass MQ library in back pocket for a more complex solution: https://eduardoboucas.github.io/include-media/
+// Not sure how much in regards to media queries this project will yet need. However, you cannot interpolate custom properties into media queries, but you can use SASS variables. Keep this Sass MQ library in back pocket for a more complex solution: https://eduardoboucas.github.io/include-media/
 // Or add this: https://github.com/sass-mq/sass-mq
-// Recommended by James: https://github.com/at-import/breakpoint
+// Recommended: https://github.com/at-import/breakpoint
 
 // Minimum touch width/height
 // https://www.w3.org/WAI/WCAG21/Understanding/target-size.html

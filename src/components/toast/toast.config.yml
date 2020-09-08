@@ -1,3 +1,14 @@
 title: Toast
+collated: true
 context:
   message: Message
+variants:
+  - name: alert
+    context:
+      modifier: alert
+  - name: caution
+    context:
+      modifier: caution
+  - name: success
+    context:
+      modifier: success

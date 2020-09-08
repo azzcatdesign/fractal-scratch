@@ -1,9 +1,0 @@
-title: Row
-collated: true
-variants:
-  - name: announcement
-    context:
-      modifier: announcement
-  - name: task
-    context:
-      modifier: task

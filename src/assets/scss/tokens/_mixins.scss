@@ -1,12 +1,3 @@
-// Make a line of text touch accessible by forcing a width and height of 44px
-@mixin text-touch {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 44px;
-  min-width: 44px;
-}
-
 // Add a touch-accessible pseudo-element to create a minimum touch width and
 // height of 44px;
 @mixin touch-min($-min-width: false) {
@@ -27,6 +18,7 @@
   }
 }
 
+// Focus *ring* that's either inside of container, 'inset'; directly around of container, 'tight'; or *appears* to be outside of container.
 @mixin focus-ring($color: var(--color-primary), $style: null) {
   &:focus {
     outline: none;
@@ -114,69 +106,35 @@
   }
 }
 
-// For Inter Font Family
-@mixin text-crop($line-height: 1.3, $top-adjustment: 0, $bottom-adjustment: 0) {
-  // Configured in Step 1
-  $top-crop: 4;
-  $bottom-crop: 5;
-  $crop-font-size: 16;
-  $crop-line-height: 1.3125;
+// Alpha color mixin for custom property hsl values.
+// From https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables
 
-  // Apply values to calculate em-based margins that work with any font size
-  $dynamic-top-crop: max(($top-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)), 0) / $crop-font-size;
-  $dynamic-bottom-crop: max(($bottom-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)), 0) / $crop-font-size;
+// return css color variable with different opacity value
+@function alpha($color, $opacity) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
 
-  // Mixin output
-  line-height: $line-height;
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    height: 0;
-    width: 0;
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
 
-  &::before {
-    margin-bottom: calc(-#{$dynamic-top-crop}em + #{$top-adjustment});
-  }
-
-  &::after {
-    margin-top: calc(-#{$dynamic-bottom-crop}em + #{$bottom-adjustment});
-  }
+  @return $string;
 }
 
-// Mixin generated at: http://text-crop.eightshapes.com/?typeface-selection=google-font&typeface=Inter&custom-typeface-name=Helvetica&custom-typeface-url=&custom-typeface-weight=400&custom-typeface-style=normal&weight-and-style=500&size=16&line-height=1.3125&top-crop=4&bottom-crop=6
-
-/* Usage Examples
-.my-level-1-heading-class {
-  @include text-crop; // Will use default line height of 1.3
-  font-size: 48px;
-  margin: 0 0 0 16px;
+// Use a SASS mixin to define each color to generate hue, saturation and lightness values automatically in CSS.
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
 }
-
-.my-level-2-heading-class {
-  @include text-crop; // Will use default line height of 1.3
-  font-size: 32px; // Don't need to change any settings, will work with any font size automatically
-  margin: 0 0 0 16px;
-}
-
-.my-body-copy-class {
-  @include text-crop($line-height: 2); // Larger line height desired, set the line height via the mixin
-  font-size: 16px;
-}
-
-// Sometimes depending on the font-size, the rendering, the browser, etc. you may need to tweak the output.
-// You can adjust the top and bottom cropping when invoking the component using the $top-adjustment and $bottom-adjustment settings
-
-.slight-adjustment-needed {
-  @include text-crop($top-adjustment: -0.5px, $bottom-adjustment: 2px);
-  font-size: 17px;
-}
-
-.don't-do-this {
-  @include text-crop;
-  font-size: 16px;
-  line-height: 3; // DO NOT set line height outside of the mixin, the mixin needs the line height value to calculate the crop correctly
-}
-*/

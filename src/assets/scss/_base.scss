@@ -3,10 +3,6 @@ body {
   font-family: $font-family-text;
   line-height: $line-height-body;
   color: var(--color-near-black);
-
-  @media screen and (max-width: 800px) {
-    font-size: $font-size-body-mobile;
-  }
 }
 
 *,

@@ -35,7 +35,6 @@
   padding: 0;
   width: $touch-min;
   height: $touch-min;
-  background: none;
   border-radius: $border-radius-sm;
   border: none;
   cursor: pointer;
@@ -57,6 +56,7 @@
 
 .modal__body {
   padding: 32px;
+  font-size: inherit;
 }
 
 .modal__buttons {

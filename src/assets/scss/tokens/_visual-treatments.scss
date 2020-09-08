@@ -13,22 +13,26 @@ $border-solid-xl: 8px solid;
 
 $border-radius-xs: 1px;
 $border-radius-sm: 3px;
-$border-radius-lg: 20px;
+$border-radius-md: 6px;
+$border-radius-lg: 9px;
+$border-radius-xl: 12px;
 $border-radius-round: 999em;
 
-// TODO: Update shadows to match new Figma.
 /*
  * Shadows
  * Double shadows for richness and UI harmony
  */
 
 // Set the shadow color
-$color-shadow: hsl(223, 39%, 18%); /* #1C2640 */
+:root {
+  @include defineColorHSL(--color-shadow, 223, 39%, 18%); // #1C2640
+}
 
 // Set the stacked shadows
-$shadow-sm: 0 2px 4px 0 rgba($color-shadow, 0.1), 0 1px 3px rgba($color-shadow, 0.15);
-$shadow-md: 0 8px 12px 0 rgba($color-shadow, 0.1), 0 4px 12px 0 rgba($color-shadow, 0.15); // Not in Figma, but may need midpoint shadow, see page.hbs.
-$shadow-lg: 0 6px 20px 0 rgba($color-shadow, 0.25), 0 4px 20px 0 rgba($color-shadow, 0.5);
+$shadow-sm: 0 2px 4px 0 alpha(var(--color-shadow), 0.1), 0 1px 3px alpha(var(--color-shadow), 0.15);
+$shadow-md: 0 8px 12px 0 alpha(var(--color-shadow), 0.1), 0 4px 12px 0 alpha(var(--color-shadow), 0.15);
+$shadow-lg: 0 6px 20px 0 alpha(var(--color-shadow), 0.1), 0 4px 20px 0 alpha(var(--color-shadow), 0.15);
+
 
 /**
  * Animation
@@ -40,7 +44,7 @@ $animation-rotate: spin 3s 1s infinite cubic-bezier(0.075, 0.82, 0.165, 1);
 $animation-bounce: bounce 1.8s 4 cubic-bezier(0.075, 0.82, 0.165, 1);
 
 /**
- * Transition (no Presenter available)
+ * Transition
  * See https://marvelapp.com/styleguide/design/animation for demos
  */
 
