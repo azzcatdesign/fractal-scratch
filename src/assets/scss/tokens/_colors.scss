@@ -38,10 +38,8 @@
 :root {
   /* UI Hued Grays */
 
-  // --black: hsl(0, 0%, 0%);
   @include defineColorHSL(--black, 0, 0%, 0%);
-  --color-near-black: hsl(223, 39%, 18%); // #1C2640
-  --color-near-black-overlay: hsla(223, 39%, 18%, 0.97); // #1c2640f7
+  @include defineColorHSL(--color-near-black, 223, 39%, 18%); // #1C2640
   --color-gray-90: hsl(223, 24%, 26%); // #323B52
   --color-gray-80: hsl(223, 17%, 34%); // #474F64
   --color-gray-70: hsl(223, 12%, 41%); // #5D6476
@@ -55,11 +53,7 @@
   --color-gray-background: hsl(220, 16%, 96%); // #F4F5F7 new background
   --color-gray-background-light: hsl(0, 0%, 98%); // #FAFAFA background light
   --color-white-overlay: hsla(0, 0%, 100%, 0.05);
-  // --white: hsl(0, 0%, 100%);
   @include defineColorHSL(--white, 0, 0%, 100%);
-
-  /* Colors that may need to be altered via mixin 'defineColorHSL' */
-  // From https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables
 
   /* Color vars mapped to semantic vars */
 

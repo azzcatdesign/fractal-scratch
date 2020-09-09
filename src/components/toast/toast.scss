@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   padding: 18px 24px;
-  background-color: var(--color-near-black-overlay);
+  background-color: alpha(var(--color-near-black), 0.95);
   color: var(--color-text-lightest);
   border-radius: $border-radius-sm;
   box-shadow: $shadow-lg;
