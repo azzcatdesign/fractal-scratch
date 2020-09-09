@@ -2,10 +2,44 @@
  * hsl = hue, saturation, lightness
  */
 
+// Alpha color mixin for custom property hsl values.
+// From https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables
+
+// return css color variable with different opacity value
+@function alpha($color, $opacity) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// Use a SASS mixin to define each color to generate hue, saturation and lightness values automatically in CSS.
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
+}
+
 :root {
   /* UI Hued Grays */
 
-  --black: hsl(0, 0%, 0%);
+  // --black: hsl(0, 0%, 0%);
+  @include defineColorHSL(--black, 0, 0%, 0%);
   --color-near-black: hsl(223, 39%, 18%); // #1C2640
   --color-near-black-overlay: hsla(223, 39%, 18%, 0.97); // #1c2640f7
   --color-gray-90: hsl(223, 24%, 26%); // #323B52
@@ -21,7 +55,11 @@
   --color-gray-background: hsl(220, 16%, 96%); // #F4F5F7 new background
   --color-gray-background-light: hsl(0, 0%, 98%); // #FAFAFA background light
   --color-white-overlay: hsla(0, 0%, 100%, 0.05);
-  --white: hsl(0, 0%, 100%);
+  // --white: hsl(0, 0%, 100%);
+  @include defineColorHSL(--white, 0, 0%, 100%);
+
+  /* Colors that may need to be altered via mixin 'defineColorHSL' */
+  // From https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables
 
   /* Color vars mapped to semantic vars */
 
@@ -30,6 +68,9 @@
   --color-bg-gray: var(--color-gray-background);
   --color-bg-gray-light: var(--color-gray-background-light);
   --color-bg-dark: var(--color-near-black);
+
+  // Shadow
+  @include defineColorHSL(--color-shadow, 223, 39%, 18%); // #1C2640
 
   // Text
   --color-text-body: var(--color-near-black);

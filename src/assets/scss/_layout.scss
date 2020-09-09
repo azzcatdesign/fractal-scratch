@@ -1,6 +1,0 @@
-.l-container-wide {
-
-  @media (min-width: $width-wide) {
-    padding: 0 calc((100vw - #{$width-wide}) / 2);
-  }
-}

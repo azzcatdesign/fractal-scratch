@@ -10,7 +10,7 @@ $button-height-inline-action: 32px;
   margin: 0;
   min-width: $touch-min;
   min-height: $button-height-default;
-  padding: 0 16px;
+  padding: 0 var(--space-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@ $button-height-inline-action: 32px;
   text-transform: uppercase;
 
   // DON'T use 'all' here! Safari breaks for :focus outline when 'all' is transitioned!
-  transition: $trans-dur-md background-color, color ease-in-out;
+  transition: $trans-dur-base background-color, color ease-in-out;
   user-select: none;
 
   &[disabled] {
@@ -73,23 +73,28 @@ $button-height-inline-action: 32px;
   @include touch-min;
 
   --notification-inset: 0.35em;
-  --group-margin: 14px;
 
   min-height: $button-height-small;
 }
 
 // Multi-action Button
 .button--multi-action {
-  padding: 0 0 0 16px;
+  padding: 0 0 0 var(--space-md);
 
-  .button__icon {
+  .button__action {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 42px;
     height: $button-height-small;
-    margin-left: 16px;
-    border-left: 1px solid var(--icon-border-color, rgba(white, 0.3));
+    margin-left: var(--space-md);
+    border-left: 1px solid alpha(var(--white), 0.3);
+  }
+
+  &.button--secondary {
+    .button__action {
+      border-color: var(--white);
+    }
   }
 }
 

@@ -2,37 +2,41 @@
  * @tokens Spacing
  */
 
-// Based on https://codyhouse.co/ds/globals/spacing. Fibonacci sequence from $space-md up.
-$space-base: 1em; /* Note: if you use 'em' the spacing will scale with font-size. Use 'rem' for static sizing. */
-$space-4xs: 0.125 * $space-base; /* 2px */
-$space-3xs: 0.25 * $space-base; /* 4px */
-$space-2xs: 0.375 * $space-base; /* 6px */
-$space-xs: 0.5 * $space-base; /* 8px */
-$space-sm: 0.75 * $space-base; /* 12px */
-$space-md: 1 * $space-base; /* 16px */
-$space-lg: 1.25 * $space-base; /* 20px */
-$space-xl: 2.25 * $space-base; /* 36px */
-$space-2xl: 3.5 * $space-base; /* 56px */
-$space-3xl: 5.75 * $space-base; /* 92px */
-$space-4xl: 9.25 * $space-base; /* 148px */
+/* Based on https://codyhouse.co/ds/globals/spacing. Fibonacci sequence
+ * Note: if you use 'em' the spacing will scale with font-size.
+ * Use 'rem' for static sizing.
+ */
+:root {
+  --space-base: 1rem; // 16px
+  --space-xxxs: calc(0.125 * var(--space-base)); // 2px
+  --space-xxs: calc(0.25 * var(--space-base)); // 4px
+  --space-xs: calc(0.375 * var(--space-base)); // 6px
+  --space-sm: calc(0.625 * var(--space-base)); // 10px
+  --space-md: var(--space-base); // 16px
+  --space-lg: calc(1.625 * var(--space-base)); // 26px
+  --space-xl: calc(2.625 * var(--space-base)); // 42px
+  --space-xxl: calc(4.25 * var(--space-base)); // 68px
+  --space-xxxl: calc(6.875 * var(--space-base)); // 110px
+  --component-padding: var(--space-md);
 
-// Tokens for common padding and margins. See https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+  // Tokens for common padding and margins. See https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
 
-// Padding, all sides equal
-$space-inset-xs: $space-xs; /* padding: 8px; */
-$space-inset-sm: $space-sm; /* padding: 12px; */
-$space-inset-md: $space-md; /* padding: 16px; */
-$space-inset-lg: $space-lg; /* padding: 20px; */
-$space-inset-xl: $space-xl; /* padding: 36px; */
+  // Padding, all sides equal
+  --space-inset-xs: var(--space-xs); // padding: 6px
+  --space-inset-sm: var(--space-sm); // padding: 10px
+  --space-inset-md: var(--space-md); // padding: 16px
+  --space-inset-lg: var(--space-lg); // padding: 26px
+  --space-inset-xl: var(--space-xl); // padding: 36px
 
-// Padding, lesser space top & bottom, see https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
-$space-inset-squish-sm: $space-sm $space-md; /* padding: 12px 16px; */
-$space-inset-squish-md: $space-md 1.5 * $space-md; /* padding: 16px 24px */
-$space-inset-squish-lg: $space-lg $space-xl; /* padding: 20px 36px; */
+  // Padding, lesser space top & bottom, see https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+  --space-inset-squish-sm: var(--space-sm) var(--space-md); // padding: 10px 16px
+  --space-inset-squish-md: var(--space-md) var(--space-lg); // padding: 16px 26px
+  --space-inset-squish-lg: var(--space-lg) var(--space-xl); // padding: 26px 42px
 
-// Bottom margins for stacking
-$space-stack-xs: 0 0 $space-3xs 0; /* margin-bottom: 4px; */
-$space-stack-sm: 0 0 $space-xs 0; /* margin-bottom: 8px; */
-$space-stack-md: 0 0 $space-base 0; /* margin-bottom: 16px */
-$space-stack-lg: 0 0 $space-lg 0; /* margin-bottom: 32px; */
-$space-stack-xl: 0 0 $space-xl 0; /* margin-bottom: 52px */
+  // Bottom margins for stacking
+  --space-stack-xs: 0 0 var(--space-3xs 0); // margin-bottom: 6px
+  --space-stack-sm: 0 0 var(--space-xs 0); // margin-bottom: 10px
+  --space-stack-md: 0 0 var(--space-base 0); // margin-bottom: 16px
+  --space-stack-lg: 0 0 var(--space-lg 0); // margin-bottom: 26px
+  --space-stack-xl: 0 0 var(--space-xl 0); // margin-bottom: 42px
+}

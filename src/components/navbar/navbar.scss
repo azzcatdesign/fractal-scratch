@@ -126,7 +126,7 @@ $avatar-diameter: 40px;
   border-bottom: 6px solid var(--color-secondary);
   border-radius: $border-radius-sm;
   box-shadow: $shadow-md;
-  transition: $trans-dur-md background-color, color ease-in-out;
+  transition: $trans-dur-base background-color, color ease-in-out;
   visibility: hidden;
   z-index: $z-nav;
 }
@@ -183,7 +183,7 @@ $avatar-diameter: 40px;
   position: relative;
   color: var(--color-text-body);
   text-decoration: none;
-  transition: $trans-dur-md background-color, color ease-in-out;
+  transition: $trans-dur-base background-color, color ease-in-out;
   white-space: nowrap;
 
   &:active,
@@ -243,13 +243,12 @@ $avatar-diameter: 40px;
 }
 
 .navbar__avatar {
-  margin-left: $space-md;
+  margin-left: 16px;
   width: $avatar-diameter;
   height: $avatar-diameter;
   display: block;
   flex-shrink: 0;
   object-fit: cover;
-  background-color: var(--color-gray-50);
   border: 2px solid transparent;
   border-radius: $border-radius-round;
 
@@ -272,7 +271,7 @@ $avatar-diameter: 40px;
   background-color: transparent;
   border: none;
   color: rgba(var(--white), 0.8);
-  transition: $trans-dur-md background-color, color ease-in-out;
+  transition: $trans-dur-base background-color, color ease-in-out;
   user-select: none;
   white-space: nowrap;
 
