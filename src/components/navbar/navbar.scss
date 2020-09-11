@@ -336,7 +336,7 @@ $avatar-diameter: 40px;
 
 .navbar__button--menu-group {
   padding: 0 22px;
-  background-color: var(--color-white-overlay);
+  background-color: alpha(--white, 0.05);
 
   &:hover {
     .navbar__button__icon {

@@ -1,9 +1,29 @@
 /**
- * hsl = hue, saturation, lightness
+ * hsla = hue, saturation, lightness, alpha
  */
 
 // Alpha color mixin for custom property hsl values.
 // From https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables
+
+// return css color variable with different saturation value
+@function saturation($color, $saturationMultiplier){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, calc(#{$color-s} * #{$saturationMultiplier}), $color-l);
+}
+
+// return css color variable with different lightness value
+@function lightness($color, $lightnessMultiplier){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
 
 // return css color variable with different opacity value
 @function alpha($color, $opacity) {
@@ -40,31 +60,25 @@
 
   @include defineColorHSL(--black, 0, 0%, 0%);
   @include defineColorHSL(--color-near-black, 223, 39%, 18%); // #1C2640
-  --color-gray-90: hsl(223, 24%, 26%); // #323B52
-  --color-gray-80: hsl(223, 17%, 34%); // #474F64
-  --color-gray-70: hsl(223, 12%, 41%); // #5D6476
-  --color-gray-60: hsl(224, 9%, 48.5%); // #717687
-  --color-gray-50: hsl(223, 8%, 56%); // #878C99
-  --color-gray-40: hsl(223, 8%, 64%); // #9DA1AB
-  --color-gray-30: hsl(228, 7%, 72%); // #B3B5BD
-  --color-gray-20: hsl(223, 7%, 80%); // #C8CACF
-  --color-gray-10: hsl(210, 6%, 87%); // #DDDFE1
-  --color-gray-5: hsl(210, 5%, 91%); // #E8E9EA
-  --color-gray-background: hsl(220, 16%, 96%); // #F4F5F7 new background
-  --color-gray-background-light: hsl(0, 0%, 98%); // #FAFAFA background light
-  --color-white-overlay: hsla(0, 0%, 100%, 0.05);
+  @include defineColorHSL(--color-gray-90, 223, 24%, 26%); // #323B52
+  @include defineColorHSL(--color-gray-80, 223, 17%, 34%); // #474F64
+  @include defineColorHSL(--color-gray-70, 223, 12%, 41%); // #5D6476
+  @include defineColorHSL(--color-gray-60, 224, 9%, 49%); // #717687
+  @include defineColorHSL(--color-gray-50, 223, 8%, 56%); // #878C99
+  @include defineColorHSL(--color-gray-40, 223, 8%, 64%); // #9DA1AB
+  @include defineColorHSL(--color-gray-30, 228, 7%, 72%); // #B3B5BD
+  @include defineColorHSL(--color-gray-20, 223, 7%, 80%); // #C8CACF
+  @include defineColorHSL(--color-gray-10, 210, 6%, 87%); // #DDDFE1
+  @include defineColorHSL(--color-gray-5, 210, 5%, 91%); // #E8E9EA
   @include defineColorHSL(--white, 0, 0%, 100%);
 
   /* Color vars mapped to semantic vars */
 
   // General Backgrounds
   --color-bg-default: var(--white);
-  --color-bg-gray: var(--color-gray-background);
-  --color-bg-gray-light: var(--color-gray-background-light);
+  --color-bg-gray: hsl(220, 16%, 96%); // #F4F5F7
+  --color-bg-gray-light: hsl(0, 0%, 98%); // #FAFAFA
   --color-bg-dark: var(--color-near-black);
-
-  // Shadow
-  @include defineColorHSL(--color-shadow, 223, 39%, 18%); // #1C2640
 
   // Text
   --color-text-body: var(--color-near-black);
@@ -76,32 +90,19 @@
   /* Application Colors */
 
   // Alert
-  --color-base-alert-hs: 335, 100%;
-  --color-alert: hsl(var(--color-base-alert-hs), 43%); // #DD005D, AA pass
-  --color-alert-shade: hsl(var(--color-base-alert-hs), 38%);
-  --color-alert-tint: hsl(var(--color-base-alert-hs), 97%);
+  @include defineColorHSL(--color-alert, 335, 100%, 43%);  // #DD005D, AA pass
 
   // Caution
-  --color-base-caution-hs: 46, 100%;
-  --color-caution: hsl(var(--color-base-caution-hs), 50%); // #FFC400, AA fail
-  --color-caution-shade: hsl(var(--color-base-caution-hs), 45%); // AA fail
-  --color-caution-tint: hsl(var(--color-base-caution-hs), 95%);
+  @include defineColorHSL(--color-caution, 46, 100%, 50%);  // #FFC400, AA fail
 
   // Info
-  --color-base-info-hs: 195, 100%;
-  --color-info: hsl(var(--color-base-info-hs), 48%); // #00B9F4, AA fail
-  --color-info-shade: hsl(var(--color-base-info-hs), 40%); // AA fail
-  --color-info-tint: hsl(var(--color-base-info-hs), 95%);
+  @include defineColorHSL(--color-info, 195, 100%, 48%); // #00B9F4, AA fail
 
   // Success
-  --color-base-success-hs: 173, 100%;
-  --color-success: hsl(var(--color-base-success-hs), 37%); // #00BBA5, AA fail
-  --color-success-shade: hsl(var(--color-base-success-hs), 26%); // AA pass
-  --color-success-tint: hsl(var(--color-base-success-hs), 95%);
+  @include defineColorHSL(--color-success, 173, 100%, 37%); // #00BBA5, AA fail
 
   // Tag
-  --color-base-tag-hs: 183, 54%;
-  --color-tag: hsl(var(--color-base-tag-hs), 85%); // #c6ecee
+  @include defineColorHSL(--color-tag, 183, 54%, 85%); // #c6ecee
 }
 
 /**
@@ -113,22 +114,19 @@
 [data-color-theme="color-theme-default"] {
 
   // Primary color-theme-default
-  --color-base-primary-hs: 223, 84%;
-  --color-primary: hsl(var(--color-base-primary-hs), 50%); // #1450EB
-  --color-primary-shade: hsl(var(--color-base-primary-hs), 40%);
-  --color-primary-tint: hsl(var(--color-base-primary-hs), 95%);
+  @include defineColorHSL(--color-primary, 223, 84%, 50%); // #1450EB
 
   // Secondary color-theme-default
-  --color-secondary: hsl(189, 100%, 28%); // #00798F
+  @include defineColorHSL(--color-secondary, 189, 100%, 28%); // #00798F
 
   // Secondary Alt color-theme-default
-  --color-secondary-alt: hsl(196, 72%, 39%); // #1C84AB
+  @include defineColorHSL(--color-secondary-alt, 196, 72%, 39%); // #1C84AB
 
   // Tertiary color-theme-default
-  --color-tertiary: hsl(261, 88%, 30%); // #380990
+  @include defineColorHSL(--color-tertiary, 261, 88%, 30%); // #380990
 
   // Tertiary Alt color-theme-default
-  --color-tertiary-alt: hsl(260, 50%, 34%); // #482B80
+  @include defineColorHSL(--color-tertiary-alt, 260, 50%, 34%); // #482B80
 
   // Gradient color-theme-default
   --color-gradient:
@@ -144,16 +142,13 @@
 [data-color-theme="color-theme-neutral"] {
 
   // Primary color-theme-neutral
-  --color-base-primary-hs: 223, 49%;
-  --color-primary: hsl(var(--color-base-primary-hs), 52%); // #496BC0
-  --color-primary-shade: hsl(var(--color-base-primary-hs), 37%);
-  --color-primary-tint: hsl(220, 46%, 95%); // #ECF0F8 slightly different -hs on this color
+  @include defineColorHSL(--color-primary, 223, 49%, 52%); // #496BC0
 
   // Secondary color-theme-neutral
-  --color-secondary: hsl(221, 8%, 53%); // #7D8390, AA Fail
+  @include defineColorHSL(--color-secondary, 221, 8%, 53%); // #7D8390, AA Fail
 
   // Tertiary color-theme-neutral
-  --color-tertiary: hsl(223, 25%, 40%); // #4C5B80
+  @include defineColorHSL(--color-tertiary, 223, 25%, 40%); // #4C5B80
 
   // Gradient color-theme-neutral
   --color-gradient:
@@ -168,16 +163,13 @@
 [data-color-theme="color-theme-teal"] {
 
   // Primary color-theme-teal
-  --color-base-primary-hs: 223, 96%;
-  --color-primary: hsl(var(--color-base-primary-hs), 42%); // #043DD3
-  --color-primary-shade: hsl(var(--color-base-primary-hs), 27%);
-  --color-primary-tint: hsl(225, 100%, 96%); // #EBF0FF slightly different -hs on this color
+  @include defineColorHSL(--color-primary, 223, 96%, 42%); // #043DD3
 
   // Secondary color-theme-teal
-  --color-secondary: hsl(189, 100%, 28%); // #00798F
+  @include defineColorHSL(--color-secondary, 189, 100%, 28%); // #00798F
 
   // Tertiary color-theme-teal
-  --color-tertiary: hsl(201, 63%, 30%); // #1C5B7D
+  @include defineColorHSL(--color-tertiary, 201, 63%, 30%); // #1C5B7D
 
   // Gradient color-theme-teal
   --color-gradient:

@@ -75,6 +75,10 @@
   &:not(:last-child) {
     margin-right: 24px;
   }
+
+  &.button--tertiary:hover {
+    filter: brightness(0.92);
+  }
 }
 
 .modal__icon-buttons {

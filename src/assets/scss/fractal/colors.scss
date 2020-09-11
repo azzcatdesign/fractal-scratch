@@ -76,11 +76,11 @@
     }
 
     &:nth-of-type(13) {
-      background: var(--color-gray-background);
+      background: var(--color-bg-gray);
     }
 
     &:nth-of-type(14) {
-      background: var(--color-gray-background-light);
+      background: var(--color-bg-gray-light);
     }
 
     &:nth-of-type(n+8) {
@@ -99,56 +99,68 @@
   p {
     min-width: 10ch;
   }
-
-  .color-chip {
-    &:nth-of-type(1) {
-      background: var(--status-color);
-    }
-
-    &:nth-of-type(2) {
-      background: var(--status-shade);
-    }
-
-    &:nth-of-type(3) {
-      background: var(--status-tint);
-    }
-  }
 }
 
 .color-chip {
   .color-variant--alert & {
-    --status-color: var(--color-alert);
-    --status-shade: var(--color-alert-shade);
-    --status-tint: var(--color-alert-tint);
+    &:nth-of-type(1) {
+      background: var(--color-alert);
+    }
+
+    &:nth-of-type(2) {
+      background: lightness(var(--color-alert), 0.88);
+    }
 
     &:nth-of-type(3) {
+      background: lightness(var(--color-alert), 2.25);
       color: var(--color-text-body);
     }
   }
 
   .color-variant--caution & {
-    --status-color: var(--color-caution);
-    --status-shade: var(--color-caution-shade);
-    --status-tint: var(--color-caution-tint);
-
     color: var(--color-text-body);
+
+    &:nth-of-type(1) {
+      background: var(--color-caution);
+    }
+
+    &:nth-of-type(2) {
+      background: lightness(var(--color-caution), 0.9);
+    }
+
+    &:nth-of-type(3) {
+      background: lightness(var(--color-caution), 1.9);
+    }
   }
 
   .color-variant--info & {
-    --status-color: var(--color-info);
-    --status-shade: var(--color-info-shade);
-    --status-tint: var(--color-info-tint);
-
     color: var(--color-text-body);
+
+    &:nth-of-type(1) {
+      background: var(--color-info);
+    }
+
+    &:nth-of-type(2) {
+      background: lightness(var(--color-info), 0.83);
+    }
+
+    &:nth-of-type(3) {
+      background: lightness(var(--color-info), 1.98);
+    }
   }
 
   .color-variant--success & {
-    --status-color: var(--color-success);
-    --status-shade: var(--color-success-shade);
-    --status-tint: var(--color-success-tint);
+    &:nth-of-type(1) {
+      background: var(--color-success);
+      color: var(--color-text-body);
+    }
 
-    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      background: lightness(var(--color-success), 0.8);
+    }
+
     &:nth-of-type(3) {
+      background: lightness(var(--color-success), 2.57);
       color: var(--color-text-body);
     }
   }
@@ -167,11 +179,11 @@
     }
 
     &:nth-of-type(2) {
-      background: var(--color-primary-shade);
+      background: lightness(var(--color-primary), 0.8);
     }
 
     &:nth-of-type(3) {
-      background: var(--color-primary-tint);
+      background: lightness(var(--color-primary), 1.8);
       color: var(--color-text-body);
     }
 

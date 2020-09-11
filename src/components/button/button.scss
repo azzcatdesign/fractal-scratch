@@ -49,7 +49,7 @@ $button-height-inline-action: 32px;
   --icon-border-color: var(--white);
 
   color: var(--secondary-fg, var(--color-primary));
-  background-color: var(--secondary-bg, var(--color-primary-tint));
+  background-color: var(--secondary-bg, lightness(var(--color-primary), 1.8));
 }
 
 // Tertiary Action Button

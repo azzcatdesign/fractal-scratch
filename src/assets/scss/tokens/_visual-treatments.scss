@@ -15,9 +15,9 @@ $border-radius-round: 999em;
  */
 
 // Set the stacked shadows
-$shadow-sm: 0 2px 4px 0 alpha(var(--color-shadow), 0.1), 0 1px 3px alpha(var(--color-shadow), 0.15);
-$shadow-md: 0 8px 12px 0 alpha(var(--color-shadow), 0.1), 0 4px 12px 0 alpha(var(--color-shadow), 0.15);
-$shadow-lg: 0 6px 20px 0 alpha(var(--color-shadow), 0.1), 0 4px 20px 0 alpha(var(--color-shadow), 0.15);
+$shadow-sm: 0 2px 4px 0 alpha(var(--color-near-black), 0.1), 0 1px 3px alpha(var(--color-near-black), 0.15);
+$shadow-md: 0 8px 12px 0 alpha(var(--color-near-black), 0.1), 0 4px 12px 0 alpha(var(--color-near-black), 0.15);
+$shadow-lg: 0 6px 20px 0 alpha(var(--color-near-black), 0.1), 0 4px 20px 0 alpha(var(--color-near-black), 0.15);
 
 /**
  * Transition
