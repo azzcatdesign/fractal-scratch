@@ -2,4 +2,4 @@
 title: Scratch Components
 ---
 
-This is your index page. You can edit its contents at `assets/docs/01-index.hbs`
+This is a genericized partial version of the Design System built for enterprise software application.
