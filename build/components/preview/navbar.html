@@ -1,0 +1,289 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Preview Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/fractal.css">
+
+    <style>
+      <!--
+        .f-heading {
+          margin-bottom: 0.5em;
+          color: #8B1986;
+        }
+      -->
+    </style>
+  </head>
+  <body style="padding:2em;">
+    <nav class="navbar navbar--global">
+  <div class="navbar__group navbar__apps-group">
+    <div class="navbar__apps navbar__menu">
+      <button class="navbar__button
+        navbar__trigger
+        navbar__button--apps-group"
+        type="button"
+        onclick="classList.toggle('is-active');"
+        aria-label="App Selection">
+        <svg class="navbar__button__icon navbar__button__icon--ellipsis-v" aria-hidden="true">
+          <use xlink:href="../../svg/svg.svg#ellipsis-v"></use>
+        </svg>
+      </button>
+
+      <div class="navbar__sub-menu navbar__sub-menu--from-left navbar__sub-menu--apps">
+        <div class="navbar__sub-menu__section-title">Section</div>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link is-active">
+              Home
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
+                <use xlink:href="../../svg/svg.svg#check" />
+              </svg>
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--arrow-right" role="presentation">
+                <use xlink:href="../../svg/svg.svg#arrow-right" />
+              </svg>
+            </a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">
+              Label
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
+                <use xlink:href="../../svg/svg.svg#check" />
+              </svg>
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--arrow-right" role="presentation">
+                <use xlink:href="../../svg/svg.svg#arrow-right" />
+              </svg>
+            </a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">
+              Extra Long Label
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
+                <use xlink:href="../../svg/svg.svg#check" />
+              </svg>
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--arrow-right" role="presentation">
+                <use xlink:href="../../svg/svg.svg#arrow-right" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <div class="navbar__sub-menu__section-title">Section</div>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">
+              Longer Label
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--check" role="presentation">
+                <use xlink:href="../../svg/svg.svg#check" />
+              </svg>
+              <svg class="navbar__sub-menu__icon navbar__sub-menu__icon--arrow-right" role="presentation">
+                <use xlink:href="../../svg/svg.svg#arrow-right" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar__group navbar__brand">
+    <svg class="navbar__brand__icon" role="presentation">
+      <use xlink:href="../../svg/svg.svg#stroopwafel"></use>
+    </svg>
+    <span class="navbar__brand__text">Application</span>
+  </div>
+
+  <div class="navbar__group navbar__menus-group">
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger navbar__button--menu-group"
+        onclick="classList.toggle('is-active');"
+        aria-haspopup="true"
+        aria-expanded="false"
+        type="button">This Label
+        <svg class="navbar__button__icon navbar__button__icon--angle-down" role="presentation">
+          <use xlink:href="../../svg/svg.svg#angle-down"></use>
+        </svg>
+      </button>
+
+      <div class="navbar__sub-menu navbar__sub-menu--from-left">
+        <p class="navbar__sub-menu__section-title">Section</p>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Option 1</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Option 2</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Longer Option 3</a>
+          </li>
+        </ul>
+
+        <p class="navbar__sub-menu__section-title">Section</p>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Option 1</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Option 2</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Longer Option 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger navbar__button--menu-group"
+        onclick="classList.toggle('is-active');"
+        aria-haspopup="true"
+        aria-expanded="false"
+        type="button">Label
+        <svg class="navbar__button__icon navbar__button__icon--angle-down" role="presentation">
+          <use xlink:href="../../svg/svg.svg#angle-down"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger navbar__button--menu-group"
+        onclick="classList.toggle('is-active');"
+        aria-haspopup="true"
+        aria-expanded="false"
+        type="button">Label
+        <svg class="navbar__button__icon navbar__button__icon--angle-down" role="presentation">
+          <use xlink:href="../../svg/svg.svg#angle-down"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar__group navbar__menus-group">
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger navbar__button--menu-group"
+        onclick="classList.toggle('is-active');"
+        aria-haspopup="true"
+        aria-expanded="false"
+        type="button">Label 1
+        <svg class="navbar__button__icon navbar__button__icon--angle-down" role="presentation">
+          <use xlink:href="../../svg/svg.svg#angle-down"></use>
+        </svg>
+      </button>
+
+      <div class="navbar__sub-menu navbar__sub-menu--from-left">
+        <p class="navbar__sub-menu__section-title">Section</p>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Option 1</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Option 2</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Longer Option 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar__group navbar__user-group">
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger
+        navbar__button--icon-only"
+        onclick="classList.toggle('is-active');"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label="Tasks"
+        type="button">
+        <svg class="navbar__button__icon navbar__button__icon--clipboard" role="presentation">
+          <use xlink:href="../../svg/svg.svg#clipboard"></use>
+        </svg>
+      </button>
+
+      <div class="navbar__sub-menu navbar__sub-menu--from-left">
+        <p class="navbar__sub-menu__section-title">Label</p>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Task 1</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Task 2</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Task Option 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger
+        navbar__button--icon-only
+        has-new"
+        onclick="classList.toggle('is-active');"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label="Notifications"
+        type="button">
+        <svg class="navbar__button__icon navbar__button__icon--bell" role="presentation">
+          <use xlink:href="../../svg/svg.svg#bell"></use>
+        </svg>
+      </button>
+
+      <div class="navbar__sub-menu navbar__sub-menu--from-left">
+        <p class="navbar__sub-menu__section-title">Label</p>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Notification 1</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Notification 2</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="navbar__menu">
+      <button class="navbar__button
+        navbar__trigger
+        navbar__button--user"
+          onclick="classList.toggle('is-active');"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button">User Name
+        <img class="navbar__avatar" src="http://lorempixel.com/100/100/people" alt="">
+        </img>
+      </button>
+
+      <div class="navbar__sub-menu navbar__sub-menu--from-right">
+        <p class="navbar__sub-menu__section-title">My Account</p>
+        <ul class="navbar__sub-menu__list">
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Profile</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Preferences</a>
+          </li>
+          <li class="navbar__sub-menu__list-item">
+            <a href="#" class="navbar__sub-menu__link">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  </body>
+</html>
+

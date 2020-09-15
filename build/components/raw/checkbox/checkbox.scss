@@ -1,0 +1,62 @@
+.checkbox { // Label element is parent of input
+  --checkbox-size: 20px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  @include focus-ring;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  padding: 0;
+  margin: 0;
+  background: var(--white);
+  border: 2px solid var(--color-gray-50);
+  border-radius: $border-radius-xs;
+
+  &::after { // Accessible touch area
+    content: "";
+    height: $touch-min;
+    width: $touch-min;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &[checked] + .checkbox__icon,
+  &:checked + .checkbox__icon {
+    opacity: 1;
+  }
+
+  &[disabled] + .checkbox__icon,
+  &[disabled] ~ .checkbox__label {
+    color: var(--color-gray-50);
+  }
+}
+
+.checkbox__icon {
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color-primary);
+  border-radius: $border-radius-xs;
+  opacity: 0;
+  z-index: $z-plus; // Force in front of focus-ring
+}
+
+.checkbox__label {
+  @include type('body-single-line');
+
+  margin-left: var(--space-lg);
+  position: relative;
+}

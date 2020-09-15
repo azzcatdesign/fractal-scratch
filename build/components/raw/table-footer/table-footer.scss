@@ -1,0 +1,17 @@
+// Table Footer
+.table-footer {
+  --table-padding: 20px;
+  @include type('body-single-line');
+
+  padding: var(--space-md) var(--table-padding);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--color-gray-10);
+}
+
+.table-footer--emphasis {
+  @include type('body-single-line--emphasis');
+}

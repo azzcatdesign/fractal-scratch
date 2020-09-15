@@ -105,6 +105,5 @@ dist
 
 /node_modules
 /public
-/build
 
 /.vscode

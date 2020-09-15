@@ -1,0 +1,64 @@
+.tab-buttons {
+  @include type('body-small-single-line');
+
+  margin-bottom: var(--space-lg);
+  display: flex;
+}
+
+.tabs-buttons__list {
+  width: max-content;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.tab-buttons__button {
+  @include touch-min;
+
+  margin: 0;
+  min-height: $button-size-small;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 var(--space-md);
+  cursor: default;
+  background-color: var(--color-gray-background);
+  text-decoration: none;
+  border-bottom: 1px var(--color-gray-background);
+  color: var(--color-gray-70);
+  white-space: nowrap;
+
+  &:hover,
+  &.is-active:hover {
+    background-color: var(--color-bg-default);
+    color: var(--color-text-body);
+  }
+
+  &.is-active {
+    background-color: var(--color-gray-background);
+    border-bottom: 1px solid var(--color-primary);
+  }
+
+  @include focus-ring($style: 'inset');
+}
+
+.tab-buttons__button--next,
+.tab-buttons__button--previous {
+  &.is-disabled {
+    color: var(--color-gray-20);
+  }
+}
+
+.tab-buttons__button--previous {
+  border-radius: $border-radius-sm 0 0 $border-radius-sm;
+}
+
+.tab-buttons__button--next {
+  border-radius: 0 $border-radius-sm $border-radius-sm 0;
+}
+
+.tab-buttons__icon {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}

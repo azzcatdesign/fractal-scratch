@@ -1,0 +1,94 @@
+.page-breadcrumbs {
+  --arrow: 7px;
+  --breadcrumb-height: 36px;
+
+  ol {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.page-breadcrumbs__list-item {
+  margin-right: var(--space-sm);
+  height: var(--breadcrumb-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--color-gray-70);
+  color: var(--color-gray-70); // color rule for child arrow svgs
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  &:first-of-type {
+    .page-breadcrumbs__arrow--tail {
+      display: none;
+    }
+  }
+
+  &:last-of-type {
+    background-color: var(--color-bg-dark);
+    color: var(--color-near-black);
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+
+    .page-breadcrumbs__arrow--point {
+      display: none;
+    }
+  }
+}
+
+.page-breadcrumbs__link {
+  @include type('body-single-line');
+  @include touch-min; // uses link's ::after element
+  @include focus-ring($color: var(--color-near-black));
+
+  padding: var(--space-inset-squish-sm);
+  height: var(--breadcrumb-height);
+  position: relative;
+  text-decoration: none;
+  color: var(--color-text-lightest);
+  white-space: nowrap;
+
+  // Skewed box
+  &.is-active::before {
+    content: "";
+    width: 100%;
+    height: var(--breadcrumb-height);
+    position: absolute;
+    top: 0;
+    right: -8px;
+    background-color: var(--color-bg-dark);
+    transform: skew(-19deg);
+    z-index: $z-minus;
+  }
+
+  &.is-active:hover::before {
+    background-color: var(--color-primary);
+  }
+}
+
+.page-breadcrumbs__arrow {
+  height: var(--breadcrumb-height);
+  width: var(--arrow);
+  position: absolute;
+  top: 0;
+}
+
+.page-breadcrumbs__arrow--point {
+  right: calc(var(--arrow) * -1);
+}
+
+.page-breadcrumbs__arrow--tail {
+  left: calc(var(--arrow) * -1);
+}
