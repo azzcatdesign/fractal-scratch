@@ -3,7 +3,7 @@
     <h3 class="modal__title">
       Title
     </h3>
-    <button class="modal__close button button--dim">
+    <button class="modal__close button button--small button--dim">
       <svg class="modal__icon">
         <use xlink:href="{{path '/svg/svg.svg' }}#close" />
       </svg>
@@ -13,23 +13,23 @@
     Lorem ipsum dolor sit amet
   </p>
   <div class="modal__buttons {{#if buttonsModifier}} modal__buttons--{{buttonsModifier}} {{/if}}">
-    <button class="button modal__button">Button 1</button>
-    <button class="button button--secondary modal__button">Button 2</button>
-    <button class="button button--tertiary modal__button">Button 3</button>
+    <button class="button button--small">Button 1</button>
+    <button class="button button--small button--secondary">Button 2</button>
+    <button class="button button--small button--tertiary">Button 3</button>
 
     {{#unless (eq _self.name "right")}}
       <div class="modal__icon-buttons">
-        <button class="button button--icon-only button--dim">
+        <button class="button button--small button--icon-only button--dim">
           <svg class="modal__icon" viewBox="0 0 18 21">
             <use xlink:href="{{path '/svg/svg.svg' }}#copy" />
           </svg>
         </button>
-        <button class="button button--icon-only button--dim">
+        <button class="button button--small button--icon-only button--dim">
           <svg class="modal__icon" viewBox="0 0 18 21">
             <use xlink:href="{{path '/svg/svg.svg' }}#trash" />
           </svg>
         </button>
-        <button class="button button--icon-only button--dim">
+        <button class="button button--small button--icon-only button--dim">
           <svg class="modal__icon modal__icon--ellipsis-v" viewBox="0 0 4 13">
             <use xlink:href="{{path '/svg/svg.svg' }}#ellipsis-v" />
           </svg>

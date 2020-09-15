@@ -14,7 +14,7 @@
   @include type('body-single-line');
 
   box-sizing: content-box; // Fix for Safari
-  padding: 4px 12px;
+  padding: var(--space-inset-squish-sm);
   width: max-content;
   display: none;
   position: absolute;

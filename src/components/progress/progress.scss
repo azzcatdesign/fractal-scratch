@@ -1,7 +1,7 @@
 .progress {
   -webkit-appearance: none;
   appearance: none;
-  height: 6px;
+  height: var(--space-sm);
   border: none;
   border-radius: $border-radius-round;
   background: var(--color-gray-20);

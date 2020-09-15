@@ -1,9 +1,9 @@
 // Global Header
-$navbar-height: 70px;
-$navbar-button-height: 40px;
-$avatar-diameter: 40px;
-
 .navbar {
+  --navbar-height: 70px;
+  --navbar-button-height: 40px;
+  --avatar-diameter: 40px;
+
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -12,7 +12,7 @@ $avatar-diameter: 40px;
 }
 
 .navbar--global {
-  height: $navbar-height;
+  height: var(--navbar-height);
   color: var(--color-text-lightest);
 
   &::before {
@@ -27,7 +27,7 @@ $avatar-diameter: 40px;
 
 // Navbar Groups
 .navbar__group {
-  height: $navbar-height;
+  height: var(--navbar-height);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -36,13 +36,13 @@ $avatar-diameter: 40px;
 
 // Navbar Applications
 .navbar__apps-group { // ellipsis-v button for side nav
-  margin: 0 16px 0 24px;
+  margin: 0 var(--space-base) 0 var(--space-lg);
 }
 
 // Navbar Brands
 .navbar__brand { // active app
 
-  margin-right: 66px;
+  margin-right: var(--space-xxl);
   position: relative;
 
   // Dark angled color bar behind ellipsis-v icon & brand. You'll see a gray box to left where it spans the Fractal 'body' margin.
@@ -60,7 +60,7 @@ $avatar-diameter: 40px;
 }
 
 .navbar__brand__icon { // stroopwafel for generic 'logo'
-  margin-right: 12px;
+  margin-right: var(--space-sm);
   width: 23px;
   height: 32px;
   fill: var(--white);
@@ -94,22 +94,10 @@ $avatar-diameter: 40px;
 }
 
 .navbar__menus-group { // menu options per active app
-  margin: 0 12px;
+  margin: 0 var(--space-sm);
 
   .navbar__menu:not(:last-of-type) {
     margin-right: 1px;
-  }
-}
-
-.navbar__menus-group + .navbar__menus-group {
-  &::before {
-    content: ""; // vertical divider between groups
-    display: block;
-    width: 1px;
-    height: 24px;
-    position: relative;
-    left: -12px;
-    background-color: rgba(var(--white), 0.2);
   }
 }
 
@@ -118,7 +106,7 @@ $avatar-diameter: 40px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 2px 0 16px;
+  padding: var(--space-xs) 0;
   position: absolute;
   top: calc(100% + 8px);
   background-color: var(--white);
@@ -139,7 +127,7 @@ $avatar-diameter: 40px;
 }
 
 .navbar__sub-menu--apps {
-  padding: 14px;
+  padding: var(--space-md) var(--space-xs);
   border-bottom: none;
 }
 
@@ -154,8 +142,8 @@ $avatar-diameter: 40px;
 .navbar__sub-menu__section-title {
   @include type('body-small');
 
-  padding-left: 14px;
-  height: $navbar-button-height;
+  padding-left: var(--space-sm);
+  height: var(--navbar-button-height);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -163,13 +151,13 @@ $avatar-diameter: 40px;
 
   .navbar__sub-menu--apps & {
     height: auto;
-    margin-bottom: 12px;
+    margin-bottom: var(--space-sm);
   }
 }
 
 .navbar__sub-menu__list {
   .navbar__sub-menu--apps &:not(:last-child) {
-    margin-bottom: 12px;
+    margin-bottom: var(--space-sm);
   }
 }
 
@@ -201,7 +189,7 @@ $avatar-diameter: 40px;
     margin: 0 10px;
 
     &:not(:last-child) {
-      margin-bottom: 12px;
+      margin-bottom: var(--space-sm);
     }
   }
 }
@@ -217,7 +205,7 @@ $avatar-diameter: 40px;
   @include focus-ring(var(--color-near-black), 'inset');
 
   width: 100%;
-  padding: 10px 24px;
+  padding: var(--space-sm) var(--space-md);
   color: inherit;
   border: none;
   text-decoration: none;
@@ -227,7 +215,7 @@ $avatar-diameter: 40px;
     @include focus-ring;
     @include arrow-menu-item;
 
-    padding: 14px;
+    padding: var(--space-sm);
     background-color: var(--color-gray-background);
     border: none;
     border-radius: $border-radius-sm;
@@ -238,13 +226,13 @@ $avatar-diameter: 40px;
 .navbar__user-group { // user-based menu options
   margin-left: auto;
   justify-content: flex-end;
-  margin-right: 34px;
+  margin-right: var(--space-md);
 }
 
 .navbar__avatar {
-  margin-left: 16px;
-  width: $avatar-diameter;
-  height: $avatar-diameter;
+  margin-left: var(--space-md);
+  width: var(--avatar-diameter);
+  height: var(--avatar-diameter);
   display: block;
   flex-shrink: 0;
   object-fit: cover;
@@ -262,14 +250,14 @@ $avatar-diameter: 40px;
   @include focus-ring(var(--white), 'tight');
 
   margin: 0;
-  height: $navbar-button-height;
+  height: var(--navbar-button-height);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   background-color: transparent;
   border: none;
-  color: rgba(var(--white), 0.8);
+  color: alpha(var(--white), 0.8);
   transition: $trans-dur-base background-color, color ease-in-out;
   user-select: none;
   white-space: nowrap;
@@ -278,7 +266,7 @@ $avatar-diameter: 40px;
   &::after {
     content: "";
     width: 100%;
-    height: $navbar-height;
+    height: var(--navbar-height);
     position: absolute;
     left: 0;
     top: 50%;
@@ -286,7 +274,7 @@ $avatar-diameter: 40px;
     cursor: pointer;
   }
 
-  &:active,
+  // &:active,
   &:hover {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
@@ -294,10 +282,11 @@ $avatar-diameter: 40px;
 
   // User notification marker
   &.has-new {
+    --marker-size: 12px;
     &::before {
       content: "";
-      width: 12px;
-      height: 12px;
+      width: var(--marker-size);
+      height: var(--marker-size);
       display: block;
       position: absolute;
       top: 20%;
@@ -321,7 +310,7 @@ $avatar-diameter: 40px;
   border-radius: $border-radius-sm;
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--white);
+    @include focus-ring(var(--white), 'tight');
   }
 
   &:active,
@@ -335,7 +324,7 @@ $avatar-diameter: 40px;
 }
 
 .navbar__button--menu-group {
-  padding: 0 22px;
+  padding: 0 var(--space-md);
   background-color: alpha(--white, 0.05);
 
   &:hover {
@@ -346,7 +335,7 @@ $avatar-diameter: 40px;
 
   &:active,
   &.is-active {
-    background-color: rgba(var(--color-bg-dark), 0.8);
+    background-color: alpha(var(--color-near-black), 0.8);
     color: var(--color-text-lightest);
 
     .navbar__button__icon {
@@ -369,7 +358,7 @@ $avatar-diameter: 40px;
   border-radius: $border-radius-sm;
 
   &:hover {
-    background-color: rgba(var(--white), 0.05);
+    background-color: alpha(var(--white), 0.05);
   }
 
   &:active,
@@ -383,8 +372,12 @@ $avatar-diameter: 40px;
 }
 
 .navbar__button--user {
-  margin-left: 12px;
-  padding: 0 0 0 10px;
+  margin-left: var(--space-sm);
+  padding: 0 0 0 var(--space-sm);
   // Oversized radii, ie: $border-radius-round,  will cancel out small radii proportionally when sized down to max size of rectangle. Need to size to 1/2 container for 'round' corners that don't break smaller radii corners.
-  border-radius: $border-radius-sm $navbar-button-height / 2 $navbar-button-height / 2 $border-radius-sm;
+  border-radius: 
+    $border-radius-sm
+    calc(var(--navbar-button-height) / 2)
+    calc(var(--navbar-button-height) / 2)
+    $border-radius-sm;
 }

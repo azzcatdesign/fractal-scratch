@@ -1,6 +1,6 @@
-$button-height-default: 48px;
-$button-height-small: 40px;
-$button-height-inline-action: 32px;
+$button-size-default: 48px;
+$button-size-small: 40px;
+$button-size-inline-action: 32px;
 
 .button {
   @include type('button');
@@ -9,7 +9,7 @@ $button-height-inline-action: 32px;
   position: relative;
   margin: 0;
   min-width: $touch-min;
-  min-height: $button-height-default;
+  min-height: $button-size-default;
   padding: 0 var(--space-md);
   display: inline-flex;
   align-items: center;
@@ -74,7 +74,7 @@ $button-height-inline-action: 32px;
 
   --notification-inset: 0.35em;
 
-  min-height: $button-height-small;
+  min-height: $button-size-small;
 }
 
 // Multi-action Button
@@ -85,8 +85,8 @@ $button-height-inline-action: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: $button-height-small;
+    width: $button-size-small;
+    height: $button-size-small;
     margin-left: var(--space-md);
     border-left: 1px solid alpha(var(--white), 0.3);
   }
@@ -122,7 +122,7 @@ $button-height-inline-action: 32px;
 
   &.button--small {
     min-width: unset;
-    width: 40px;
+    width: $button-size-small;
   }
 
   &.has-notification::before {
@@ -143,7 +143,7 @@ $button-height-inline-action: 32px;
   @include type('body-small-single-line');
   @include touch-min;
 
-  min-height: $button-height-inline-action;
+  min-height: $button-size-inline-action;
   border-radius: $border-radius-sm;
   color: var(--color-text-body);
   text-transform: none;

@@ -2,7 +2,7 @@ $data-gap: 40px;
 
 // Summary Data row on gray background
 .summary-data-row {
-  padding: 18px 24px;
+  padding: var(--space-inset-squish-md);
   display: flex;
   align-items: center;
   // gap: $data-gap; // Not supported by Safari, even though Safari *thinks* it supports this when using @support directive!
@@ -12,7 +12,9 @@ $data-gap: 40px;
 }
 
 .summary-data-row__pair {
-  margin: 0 $data-gap / 2;
+  --data-gap: 40px;
+
+  margin: 0 calc(var(--data-gap) / 2);
 
   &:first-of-type {
     margin-left: 0;
@@ -33,7 +35,7 @@ $data-gap: 40px;
 .summary-data-row__value {
   @include type('body-single-line');
 
-  margin-top: 14px;
+  margin-top: var(--space-sm);
 }
 
 .summary-data-row__value--multi {
@@ -44,18 +46,19 @@ $data-gap: 40px;
     &::before {
       content: '•';
       color: var(--color-gray-20);
-      padding: 0 8px;
+      padding: 0 var(--space-sm);
     }
   }
 }
 
 // Summary Data Card w/box-shadow and left-border
 .summary-data-card {
-  padding: 16px 20px;
+  --button-size: 44px;
+
+  padding: var(--space-sm) var(--space-lg) var(--space-md);
   display: grid;
   align-items: start;
-  grid-template-columns: auto auto 44px;
-  grid-template-rows: 2;
+  grid-template-columns: auto auto var(--button-size);
   grid-template-areas:
     "title-group data-points actions"
     "label-group data-points actions";
@@ -63,7 +66,7 @@ $data-gap: 40px;
   box-shadow: $shadow-sm;
 
   + .summary-data-card {
-    margin-top: 16px;
+    margin-top: var(--space-md);
   }
 }
 
@@ -72,7 +75,7 @@ $data-gap: 40px;
 }
 
 .summary-data-card__label-title-group {
-  margin-bottom: 6px;
+  margin-bottom: var(--space-xs);
   grid-area: title-group;
 }
 
@@ -95,7 +98,7 @@ $data-gap: 40px;
 }
 
 .summary-data-card__data-point-group {
-  padding-top: 4px; // align text baseline with label-title
+  padding-top: var(--space-xxs); // align text baseline with label-title
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -106,6 +109,6 @@ $data-gap: 40px;
   @include type('body-small');
 
   + .summary-data-card__data-point {
-    margin-left: 16px;
+    margin-left: var(--space-md);
   }
 }

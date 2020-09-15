@@ -1,7 +1,7 @@
 .toast {
   display: flex;
   align-items: center;
-  padding: 18px 24px;
+  padding: var(--space-inset-squish-md);
   background-color: alpha(var(--color-near-black), 0.95);
   color: var(--color-text-lightest);
   border-radius: $border-radius-sm;
@@ -28,6 +28,6 @@
 .toast__icon {
   width: 1em;
   height: 1em;
-  margin-right: 8px;
+  margin-right: var(--space-sm);
   color: inherit;
 }

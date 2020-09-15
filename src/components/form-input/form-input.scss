@@ -1,3 +1,8 @@
+:root {
+  --form-pad: 12px; // text input and textarea
+  // allow us to keep input same height (40px) as small buttons for alignment
+}
+
 .form-input { // Label as container
   @include touch-min;
 
@@ -13,26 +18,26 @@
 .form-input__label {
   @include type('input-label');
 
-  margin-bottom: 8px;
+  margin-bottom: var(--space-xs);
   color: var(--color-text-body);
 }
 
 .form-input__hint {
   @include type('input-hint');
 
-  margin-top: 10px;
+  margin-top: var(--space-xs);
   color: var(--color-gray-60);
 }
 
 .form-input__input {
-  @include type('input');
+  --padding-hz: calc(var(--form-pad) + var(--space-base) + var(--form-pad)); // default padding-left/right (--form-pad), plus width of icon (--space-base), plus width of margin between icon and text (--form-pad)
 
-  --padding-hz: calc(12px + 16px + 12px); // Default padding-left/right (12px), plus width of icon (16px), plus width of margin between icon and text (12px)
+  @include type('input');
 
   margin: 0;
   width: 100%;
-  height: calc(1rem + 12px + 12px); // Add vertical padding to height
-  padding: 12px;
+  height: calc(1rem + var(--form-pad) + var(--form-pad)); // Add vertical padding to height
+  padding: var(--form-pad);
   background-color: var(--color-bg-default);
   border-radius: $border-radius-sm;
   border: 1px solid var(--color-gray-20);
@@ -79,8 +84,8 @@
 }
 
 .form-input__icon {
-  width: 16px;
-  height: 16px;
+  width: var(--space-base);
+  height: var(--space-base);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -92,11 +97,11 @@
   }
 
   .form-input__input--icon-prepend + & {
-    left: 12px;
+    left: var(--form-pad);
   }
 
   .form-input__input--icon-append + & {
-    right: 12px;
+    right: var(--form-pad);
   }
 
   .form-input--date & {

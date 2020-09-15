@@ -38,7 +38,7 @@
   }
 
   .button--icon-only + .button--icon-only {
-    margin-left: 6px;
+    margin-left: var(--space-xs);
   }
 }
 
@@ -48,8 +48,8 @@
     "image title title"
     "image subtitle subtitle"
     "image data-list data-list";
-  column-gap: 16px;
-  row-gap: 8px;
+  column-gap: var(--space-md);
+  row-gap: var(--space-sm);
 
   .record--header-mini & {
     grid-template-areas: "image title";
@@ -117,7 +117,7 @@
     &::before {
       content: '•';
       color: var(--color-gray-20);
-      padding: 0 8px;
+      padding: 0 var(--space-sm);
     }
   }
 }

@@ -1,4 +1,6 @@
 .checkbox { // Label element is parent of input
+  --checkbox-size: 20px;
+
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -10,8 +12,8 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
   padding: 0;
   margin: 0;
   background: var(--white);
@@ -41,8 +43,8 @@ input[type="checkbox"] {
 }
 
 .checkbox__icon {
-  width: 20px;
-  height: 20px;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
   position: absolute;
   top: 0;
   left: 0;
@@ -55,6 +57,6 @@ input[type="checkbox"] {
 .checkbox__label {
   @include type('body-single-line');
 
-  margin-left: 32px;
+  margin-left: var(--space-lg);
   position: relative;
 }

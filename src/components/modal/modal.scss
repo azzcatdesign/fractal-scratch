@@ -7,12 +7,10 @@
 }
 
 .modal__header {
-  $-icon-width: 16px;
-  $-button-width: $touch-min;
-  $-h-padding: 32px;
+  --icon-width: var(--space-base);
+  --button-width: #{$touch-min};
 
-  padding: 0 $-h-padding;
-  padding-right: $-h-padding - (($-button-width - $-icon-width) / 2);
+  padding: 0 var(--space-md) 0 var(--space-lg);
   background: var(--color-bg-gray);
   display: flex;
   justify-content: space-between;
@@ -23,21 +21,12 @@
 .modal__title {
   @include type('modal-title');
 
-  margin: 16px 0;
+  margin: var(--space-md) 0;
 }
 
 .modal__close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -webkit-appearance: none;
-  appearance: none;
   padding: 0;
-  width: $touch-min;
   height: $touch-min;
-  border-radius: $border-radius-sm;
-  border: none;
-  cursor: pointer;
 
   &:active {
     color: inherit;
@@ -55,30 +44,28 @@
 }
 
 .modal__body {
-  padding: 32px;
+  padding: var(--space-lg);
   font-size: inherit;
 }
 
 .modal__buttons {
   display: flex;
-  padding: 14px 32px 16px;
+  padding: var(--space-md) var(--space-md) var(--space-md) var(--space-lg);
   background: var(--color-bg-gray);
   border-radius: 0 0 $border-radius-sm $border-radius-sm;
+
+  .button:not(:last-child) {
+    margin-right: var(--space-md);
+  }
+
+  .button--tertiary:hover {
+    filter: brightness(0.92);
+  }
 }
 
 .modal__buttons--right {
   display: flex;
   justify-content: flex-end;
-}
-
-.modal__button {
-  &:not(:last-child) {
-    margin-right: 24px;
-  }
-
-  &.button--tertiary:hover {
-    filter: brightness(0.92);
-  }
 }
 
 .modal__icon-buttons {

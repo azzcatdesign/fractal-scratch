@@ -1,6 +1,7 @@
-$breadcrumb-height: 36px;
-
 .page-breadcrumbs {
+  --arrow: 7px;
+  --breadcrumb-height: 36px;
+
   ol {
     display: inline-flex;
     align-items: center;
@@ -8,8 +9,8 @@ $breadcrumb-height: 36px;
 }
 
 .page-breadcrumbs__list-item {
-  margin-right: 14px;
-  height: $breadcrumb-height;
+  margin-right: var(--space-sm);
+  height: var(--breadcrumb-height);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,8 +53,8 @@ $breadcrumb-height: 36px;
   @include touch-min; // uses link's ::after element
   @include focus-ring($color: var(--color-near-black));
 
-  padding: 10px 16px;
-  height: $breadcrumb-height;
+  padding: var(--space-inset-squish-sm);
+  height: var(--breadcrumb-height);
   position: relative;
   text-decoration: none;
   color: var(--color-text-lightest);
@@ -63,7 +64,7 @@ $breadcrumb-height: 36px;
   &.is-active::before {
     content: "";
     width: 100%;
-    height: $breadcrumb-height;
+    height: var(--breadcrumb-height);
     position: absolute;
     top: 0;
     right: -8px;
@@ -78,16 +79,16 @@ $breadcrumb-height: 36px;
 }
 
 .page-breadcrumbs__arrow {
-  height: $breadcrumb-height;
-  width: 7px;
+  height: var(--breadcrumb-height);
+  width: var(--arrow);
   position: absolute;
   top: 0;
 }
 
 .page-breadcrumbs__arrow--point {
-  right: -7px;
+  right: calc(var(--arrow) * -1);
 }
 
 .page-breadcrumbs__arrow--tail {
-  left: -7px;
+  left: calc(var(--arrow) * -1);
 }

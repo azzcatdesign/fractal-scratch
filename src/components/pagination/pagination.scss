@@ -5,13 +5,15 @@
 }
 
 .pagination__link {
-  @include type('button--small');
+  --link-size: 40px;
   @include focus-ring(var(--color-primary), 'inset');
+  @include type('button--small');
+  @include touch-min;
 
-  margin: 0 4px;
-  padding: 0 16px;
-  min-width: 40px;
-  height: 40px;
+  margin: 0 var(--space-xxs);
+  padding: 0 var(--space-md);
+  min-width: var(--link-size);
+  height: var(--link-size);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -43,16 +45,5 @@
   &.is-disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-
-  &::after { // Add back accessible minimum touch area of 44x44
-    content: "";
-    min-width: $touch-min;
-    width: 100%;
-    height: $touch-min;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }

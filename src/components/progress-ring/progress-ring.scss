@@ -1,5 +1,5 @@
 .progress-ring {
-  padding: 16px;
+  padding: var(--space-md);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -8,9 +8,11 @@
 }
 
 .progress-ring__circle {
-  margin-bottom: 16px;
-  width: 32px;
-  height: 32px;
+  --circle-size: 32px;
+
+  margin-bottom: var(--space-md);
+  width: var(--circle-size);
+  height:  var(--circle-size);
   border-radius: $border-radius-round;
   border: 3px solid var(--color-gray-20);
   border-top-color: var(--color-primary);

@@ -9,7 +9,7 @@
 .tooltip-button__tooltip {
   @include type('button--small');
 
-  padding: 10px;
+  padding: var(--space-inset-sm);
   display: none;
   position: absolute;
   top: 0;
