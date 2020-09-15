@@ -1,0 +1,73 @@
+.select-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.select-input--table-footer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.select-input__label {
+  @include type('input-label');
+
+  margin-bottom: var(--space-sm);
+  display: inline-block;
+}
+
+// This wrap allows placement of down arrow in relation to <select> rather than <label>.
+.select-input__content {
+  display: inline;
+  position: relative;
+}
+
+.select-input__select {
+  @include type('body-single-line');
+
+  margin: 0;
+  padding: 0 2.25em 0 var(--space-sm);
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--color-gray-20);
+  border-radius: $border-radius-sm;
+  color: var(--color-text-body);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:active,
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 6px var(--color-primary-translucent);
+  }
+}
+
+// Not speced in Figma, but just in case we need.
+.select-input__select--multiple {
+  padding-right: var(--space-sm); // no down arrow on multiple
+  height: unset;
+}
+
+.select-input__icon {
+  width: 0.725em;
+  height: 0.725em;
+  fill: var(--color-gray-40);
+  position: absolute;
+  right: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.select-input__hint {
+  @include type('input-hint');
+
+  margin-top: var(--space-sm);
+  color: var(--color-gray-60);
+}
+
+.select-input__quantifier {
+  margin-left: var(--space-md);
+}

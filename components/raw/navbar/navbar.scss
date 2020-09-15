@@ -1,0 +1,383 @@
+// Global Header
+.navbar {
+  --navbar-height: 70px;
+  --navbar-button-height: 40px;
+  --avatar-diameter: 40px;
+
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar--global {
+  height: var(--navbar-height);
+  color: var(--color-text-lightest);
+
+  &::before {
+    content: '';
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    background: var(--color-gradient);
+    z-index: $z-minus;
+  }
+}
+
+// Navbar Groups
+.navbar__group {
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+// Navbar Applications
+.navbar__apps-group { // ellipsis-v button for side nav
+  margin: 0 var(--space-base) 0 var(--space-lg);
+}
+
+// Navbar Brands
+.navbar__brand { // active app
+
+  margin-right: var(--space-xxl);
+  position: relative;
+
+  // Dark angled color bar behind ellipsis-v icon & brand. You'll see a gray box to left where it spans the Fractal 'body' margin.
+  &::before {
+    content: "";
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -36px;
+    background-color: alpha(var(--color-near-black), 0.8);
+    transform: skew(-19deg);
+    z-index: $z-minus;
+  }
+}
+
+.navbar__brand__icon { // stroopwafel for generic 'logo'
+  margin-right: var(--space-sm);
+  width: 23px;
+  height: 32px;
+  fill: var(--white);
+}
+
+.navbar__brand__text {
+  @include type('page-title-single-line');
+
+  color: var(--white);
+  white-space: nowrap;
+}
+
+// Navbar Menus
+.navbar__menu {
+  position: relative;
+
+  // Edit the border radii of first and last in button group.
+  &:first-of-type {
+    .navbar__button:not(.navbar__button--user) {
+      border-top-left-radius: $border-radius-sm;
+      border-bottom-left-radius: $border-radius-sm;
+    }
+  }
+
+  &:last-of-type {
+    .navbar__button:not(.navbar__button--user) {
+      border-top-right-radius: $border-radius-sm;
+      border-bottom-right-radius: $border-radius-sm;
+    }
+  }
+}
+
+.navbar__menus-group { // menu options per active app
+  margin: 0 var(--space-sm);
+
+  .navbar__menu:not(:last-of-type) {
+    margin-right: 1px;
+  }
+}
+
+// The sub-menus
+.navbar__sub-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--space-xs) 0;
+  position: absolute;
+  top: calc(100% + 8px);
+  background-color: var(--white);
+  border-bottom: 6px solid var(--color-secondary);
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-md;
+  transition: $trans-dur-base background-color, color ease-in-out;
+  visibility: hidden;
+  z-index: $z-nav;
+}
+
+.navbar__sub-menu--from-left {
+  left: 0;
+}
+
+.navbar__sub-menu--from-right {
+  right: 0;
+}
+
+.navbar__sub-menu--apps {
+  padding: var(--space-md) var(--space-xs);
+  border-bottom: none;
+}
+
+// TODO: Engineering: hook up JS to open/close submenu.
+// Question: In order to display on :hover, do we need JS to keep submenu open?
+.navbar__trigger.is-active ~ .navbar__sub-menu,
+.navbar__trigger:hover ~ .navbar__sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar__sub-menu__section-title {
+  @include type('body-small');
+
+  padding-left: var(--space-sm);
+  height: var(--navbar-button-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--color-gray-60);
+
+  .navbar__sub-menu--apps & {
+    height: auto;
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.navbar__sub-menu__list {
+  .navbar__sub-menu--apps &:not(:last-child) {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.navbar__sub-menu__list-item { // Sub-menu items
+  @include type('menu-list-item');
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  color: var(--color-text-body);
+  text-decoration: none;
+  transition: $trans-dur-base background-color, color ease-in-out;
+  white-space: nowrap;
+
+  &:active,
+  &:hover {
+    background-color: var(--color-bg-gray);
+  }
+
+  // Make sure if sub-menu *starts* with list, it follows container's border radii.
+  &:not(.navbar__sub-menu__section-title + &) {
+    border-top-left-radius: $border-radius-sm;
+    border-top-right-radius: $border-radius-sm;
+  }
+
+  // Menu items inside the apps menu
+  .navbar__sub-menu--apps & {
+    margin: 0 10px;
+
+    &:not(:last-child) {
+      margin-bottom: var(--space-sm);
+    }
+  }
+}
+
+// But if list *follows* section title, no border radii.
+.navbar__sub-menu__section-title + .navbar__sub-menu__list {
+  .navbar__sub-menu__list-item {
+    border-radius: 0;
+  }
+}
+
+.navbar__sub-menu__link {
+  @include focus-ring(var(--color-near-black), 'inset');
+
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  color: inherit;
+  border: none;
+  text-decoration: none;
+
+  // Menu items inside the apps menu
+  .navbar__sub-menu--apps & {
+    @include focus-ring;
+    @include arrow-menu-item;
+
+    padding: var(--space-sm);
+    background-color: var(--color-gray-background);
+    border: none;
+    border-radius: $border-radius-sm;
+  }
+}
+
+// Navbar User Group
+.navbar__user-group { // user-based menu options
+  margin-left: auto;
+  justify-content: flex-end;
+  margin-right: var(--space-md);
+}
+
+.navbar__avatar {
+  margin-left: var(--space-md);
+  width: var(--avatar-diameter);
+  height: var(--avatar-diameter);
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: $border-radius-round;
+
+  .navbar__button:hover & {
+    border-color: var(--white);
+  }
+}
+
+// All the Navbar Buttons
+.navbar__button {
+  @include type('navbar-item');
+  @include focus-ring(var(--white), 'tight');
+
+  margin: 0;
+  height: var(--navbar-button-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  color: alpha(var(--white), 0.8);
+  transition: $trans-dur-base background-color, color ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+
+  // Expand the touch target to full height of navbar.
+  &::after {
+    content: "";
+    width: 100%;
+    height: var(--navbar-height);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  // &:active,
+  &:hover {
+    background-color: var(--color-bg-default);
+    color: var(--color-text-body);
+  }
+
+  // User notification marker
+  &.has-new {
+    --marker-size: 12px;
+    &::before {
+      content: "";
+      width: var(--marker-size);
+      height: var(--marker-size);
+      display: block;
+      position: absolute;
+      top: 20%;
+      right: 15%;
+      background-color: var(--color-alert);
+      border: 1px solid var(--white);
+      border-radius: $border-radius-round;
+    }
+  }
+}
+
+.navbar__button__icon {
+  width: 1.35em;
+  height: 1.35em;
+  fill: var(--color-text-lightest);
+}
+
+// Navbar Applications Trigger (ellipsis-v)
+.navbar__button--apps-group {
+  width: $touch-min;
+  border-radius: $border-radius-sm;
+
+  &:focus {
+    @include focus-ring(var(--white), 'tight');
+  }
+
+  &:active,
+  &:hover {
+    background-color: var(--white);
+
+    .navbar__button__icon--ellipsis-v {
+      fill: var(--color-primary);
+    }
+  }
+}
+
+.navbar__button--menu-group {
+  padding: 0 var(--space-md);
+  background-color: alpha(--white, 0.05);
+
+  &:hover {
+    .navbar__button__icon {
+      fill: var(--color-primary);
+    }
+  }
+
+  &:active,
+  &.is-active {
+    background-color: alpha(var(--color-near-black), 0.8);
+    color: var(--color-text-lightest);
+
+    .navbar__button__icon {
+      fill: var(--color-gray-5);
+    }
+  }
+}
+
+.navbar__button__icon--angle-down {
+  margin-right: -4px; // Balance button padding when small caret icon present.
+  margin-left: 0.5em;
+  width: 1em;
+  height: 1em;
+  fill: var(--color-gray-5);
+}
+
+.navbar__button--icon-only {
+  margin-right: 1px;
+  width: $touch-min;
+  border-radius: $border-radius-sm;
+
+  &:hover {
+    background-color: alpha(var(--white), 0.05);
+  }
+
+  &:active,
+  &.is-active {
+    background-color: var(--white);
+
+    .navbar__button__icon {
+      fill: var(--color-text-body);
+    }
+  }
+}
+
+.navbar__button--user {
+  margin-left: var(--space-sm);
+  padding: 0 0 0 var(--space-sm);
+  // Oversized radii, ie: $border-radius-round,  will cancel out small radii proportionally when sized down to max size of rectangle. Need to size to 1/2 container for 'round' corners that don't break smaller radii corners.
+  border-radius: 
+    $border-radius-sm
+    calc(var(--navbar-button-height) / 2)
+    calc(var(--navbar-button-height) / 2)
+    $border-radius-sm;
+}

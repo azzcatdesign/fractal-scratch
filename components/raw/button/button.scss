@@ -1,0 +1,213 @@
+$button-size-default: 48px;
+$button-size-small: 40px;
+$button-size-inline-action: 32px;
+
+.button {
+  @include type('button');
+  @include focus-ring(var(--primary-bg, var(--color-primary)));
+
+  position: relative;
+  margin: 0;
+  min-width: $touch-min;
+  min-height: $button-size-default;
+  padding: 0 var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-bg, var(--color-primary));
+  border: none;
+  border-radius: $border-radius-sm;
+  color: var(--primary-fg, var(--color-text-lightest));
+  cursor: pointer;
+  text-transform: uppercase;
+
+  // DON'T use 'all' here! Safari breaks for :focus outline when 'all' is transitioned!
+  transition: $trans-dur-base background-color, color ease-in-out;
+  user-select: none;
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &:active {
+    filter: brightness(0.9);
+  }
+
+  // In some browsers, SVGs can capture clicks in a way that prevents the button from registering the click.
+  svg {
+    pointer-events: none;
+  }
+}
+
+// Secondary Action Button
+.button--secondary {
+  --icon-border-color: var(--white);
+
+  color: var(--secondary-fg, var(--color-primary));
+  background-color: var(--secondary-bg, lightness(var(--color-primary), 1.8));
+}
+
+// Tertiary Action Button
+.button--tertiary {
+  color: var(--tertiary-fg, var(--color-primary));
+  text-transform: unset;
+  background-color: var(--tertiary-bg, transparent);
+
+  &:hover {
+    --primary-bg: var(--white); // Need a color for :filter to be applied
+
+    background-color: var(--primary-bg);
+  }
+}
+
+// 40px (small) Height Buttons
+.button--small,
+.button--multi-action,
+.button--content {
+  @include type('button--small');
+  @include touch-min;
+
+  --notification-inset: 0.35em;
+
+  min-height: $button-size-small;
+}
+
+// Multi-action Button
+.button--multi-action {
+  padding: 0 0 0 var(--space-md);
+
+  .button__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $button-size-small;
+    height: $button-size-small;
+    margin-left: var(--space-md);
+    border-left: 1px solid alpha(var(--white), 0.3);
+  }
+
+  &.button--secondary {
+    .button__action {
+      border-color: var(--white);
+    }
+  }
+}
+
+// Content Button
+.button--content {
+  color: var(--color-text-body);
+  background-color: var(--color-bg-default);
+  border: 1px solid var(--color-gray-20);
+  text-transform: unset;
+
+  &:hover,
+  &:focus {
+    color: var(--color-text-lightest);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+// Icon Only Button
+.button--icon-only {
+  @include touch-min($-min-width: true);
+
+  padding: 0;
+  width: 48px;
+
+  &.button--small {
+    min-width: unset;
+    width: $button-size-small;
+  }
+
+  &.has-notification::before {
+    content: '';
+    width: 0.5em;
+    height: 0.5em;
+    display: block;
+    position: absolute;
+    top: var(--notification-inset, 0.5em);
+    right: var(--notification-inset, 0.5em);
+    background-color: var(--notification-color, var(--color-alert));
+    border-radius: $border-radius-round;
+  }
+}
+
+// "Action" buttons within headers
+.button--action {
+  @include type('body-small-single-line');
+  @include touch-min;
+
+  min-height: $button-size-inline-action;
+  border-radius: $border-radius-sm;
+  color: var(--color-text-body);
+  text-transform: none;
+  background-color: var(--color-bg-gray);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-lightest);
+  }
+}
+
+// Application State Buttons
+.button--alert {
+  --primary-fg: #{var(--color-text-lightest)};
+  --primary-bg: var(--color-alert);
+  --secondary-fg: var(--color-alert);
+  --secondary-bg: var(--color-alert-tint);
+  --tertiary-fg: var(--color-alert);
+  --tertiary-bg: var(--white);
+  --tertiary-shadow: var(--color-alert);
+  --notification-color: var(--white);
+}
+
+// Note: EP said there will *likely* be a success button. No Figma yet.
+// Note: Regular success color passes AA w/black text, --shade passes with white text.
+.button--success {
+  --primary-fg: #{var(--color-text-lightest)};
+  --primary-bg: var(--color-success);
+  --secondary-fg: var(--color-success);
+  --secondary-bg: var(--color-success-tint);
+  --tertiary-fg: var(--color-success);
+  --tertiary-bg: var(--white);
+  --tertiary-shadow: var(--color-success);
+}
+
+// Clear background button with light gray hover
+.button--clear {
+  --primary-fg: #{var(--color-text-body)};
+  --primary-bg: transparent;
+
+  &:focus {
+    @include focus-ring;
+  }
+
+  &:hover {
+    --primary-bg: var(--white); // Need a color for :filter to be applied
+  }
+}
+
+// Gray button, usually used only on .button--icon-only
+.button--dim {
+  @include focus-ring(var(--primary-fg));
+
+  --primary-fg: #{var(--color-text-body)};
+  --primary-bg: #{var(--color-bg-gray)};
+}
+
+// With Icon
+.button__icon {
+  height: 1.25em;
+  width: 1.25em;
+  fill: currentColor;
+}
+
+.button__icon--prepend {
+  margin-right: 0.5em;
+}

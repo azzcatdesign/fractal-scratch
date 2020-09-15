@@ -1,0 +1,23 @@
+// Links intended to be used more like a button and have enough space around it to increase touch area.
+.link-action {
+  position: relative;
+  color: var(--color-primary);
+  border: none;
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--color-primary);
+    filter: brightness(0.95);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    min-height: $touch-min;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

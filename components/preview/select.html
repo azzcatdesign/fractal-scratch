@@ -1,0 +1,76 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Preview Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/fractal.css">
+
+    <style>
+      <!--
+        .f-heading {
+          margin-bottom: 0.5em;
+          color: #8B1986;
+        }
+      -->
+    </style>
+  </head>
+  <body style="padding:2em;">
+    <h2 class="f-heading">Basic Select with Hint</h2>
+<label class="select-input">
+  <span class="select-input__label">Select an option.</span>
+  <span class="select-input__content">
+    <select class="select-input__select">
+      <option value="1">Option 1</option>
+      <option value="2" disabled>Disabled Option 2</option>
+      <option value="3">Longer Option 3</option>
+      <option value="4">Option 4</option>
+    </select>
+    <svg class="select-input__icon" aria-hidden="true">
+      <use xlink:href="/svg/svg.svg#triangle-down"></use>
+    </svg>
+  </span>
+  <span class="select-input__hint">Hint text.</span>
+</label>
+
+<h2 class="f-heading" style="margin-top: 40px">Multiple Select/OptGroups with Hint</h2>
+<label class="select-input">
+  <span class="select-input__label">Select an option.</span>
+  <select class="select-input__select select-input__select--multiple" multiple size="4">
+    <optgroup label="Group One">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3" disabled>Disabled Option 3</option>
+      <option value="4">Option 4</option>
+    </optgroup>
+    <optgroup label="Group Two">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Longer Option 3</option>
+      <option value="4">Option 4</option>
+    </optgroup>
+  </select>
+  <span class="select-input__hint">Hint text.</span>
+</label>
+
+<h2 class="f-heading" style="margin-top: 40px">Table Footer Select, no label text, no hint, and quantifier</h2>
+<label class="select-input select-input--table-footer">
+  <span class="select-input__content">
+    <select class="select-input__select" aria-label="Display per page.">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+    <svg class="select-input__icon" aria-hidden="true">
+      <use xlink:href="/svg/svg.svg#triangle-down"></use>
+    </svg>
+  </span>
+  <span class="select-input__quantifier" aria-hidden="true">per page</span>
+</label>
+
+  </body>
+</html>
+

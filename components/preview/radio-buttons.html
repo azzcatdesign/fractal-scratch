@@ -1,0 +1,68 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Preview Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/fractal.css">
+
+    <style>
+      <!--
+        .f-heading {
+          margin-bottom: 0.5em;
+          color: #8B1986;
+        }
+      -->
+    </style>
+  </head>
+  <body style="padding:2em;">
+    <h2 class="f-heading">Inline</h2>
+<div class="radio-buttons radio-buttons--inline" role="radiogroup" aria-labelledby="group1">
+  <p class="radio-buttons__title">Group Label</p>
+  <div class="radio-buttons__group">
+    <label class="radio-buttons__button">
+      <input class="radio-buttons__input" type="radio" name="group1" value="1"/>
+      <span class="radio-buttons__label">First Button Label</span>
+    </label>
+    <label class="radio-buttons__button">
+      <input class="radio-buttons__input" type="radio" name="group1" value="2" disabled/>
+      <span class="radio-buttons__label">Disabled</span>
+    </label>
+    <label class="radio-buttons__button">
+      <input class="radio-buttons__input" type="radio" name="group1" value="3"/>
+      <span class="radio-buttons__label">Third Button Label</span>
+    </label>
+  </div>
+</div>
+
+<h2 class="f-heading" style="margin-top: 2rem;">Stacked</h2>
+<div class="radio-buttons radio-buttons--stacked" role="radiogroup" aria-labelledby="group2">
+  <p class="radio-buttons__title">Group Label</p>
+  <label class="radio-buttons__button">
+    <input class="radio-buttons__input" type="radio" name="group2" value="1"/>
+    <span class="radio-buttons__label">Button Label</span>
+  </label>
+  <label class="radio-buttons__button">
+    <input class="radio-buttons__input" type="radio" name="group2" value="2" disabled/>
+    <span class="radio-buttons__label">Disabled</span>
+  </label>
+  <label class="radio-buttons__button">
+    <input class="radio-buttons__input" type="radio" name="group2" value="3"/>
+    <span class="radio-buttons__label">Button Label</span>
+  </label>
+  <label class="radio-buttons__button">
+    <input class="radio-buttons__input" type="radio" name="group2" value="4" checked/>
+    <span class="radio-buttons__label">Checked</span>
+  </label>
+  <label class="radio-buttons__button">
+    <input class="radio-buttons__input" type="radio" name="group2" value="5" checked disabled/>
+    <span class="radio-buttons__label">Checked and Disabled</span>
+  </label>
+</div>
+
+  </body>
+</html>
+
