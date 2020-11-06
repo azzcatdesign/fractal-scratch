@@ -132,7 +132,6 @@
 }
 
 // TODO: Engineering: hook up JS to open/close submenu.
-// Question: In order to display on :hover, do we need JS to keep submenu open?
 .navbar__trigger.is-active ~ .navbar__sub-menu,
 .navbar__trigger:hover ~ .navbar__sub-menu {
   opacity: 1;
@@ -375,7 +374,7 @@
   margin-left: var(--space-sm);
   padding: 0 0 0 var(--space-sm);
   // Oversized radii, ie: $border-radius-round,  will cancel out small radii proportionally when sized down to max size of rectangle. Need to size to 1/2 container for 'round' corners that don't break smaller radii corners.
-  border-radius: 
+  border-radius:
     $border-radius-sm
     calc(var(--navbar-button-height) / 2)
     calc(var(--navbar-button-height) / 2)
